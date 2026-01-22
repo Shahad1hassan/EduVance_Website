@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EduVance – Student Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="page">
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <div class="logo">EduVance</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="student-dashboard.html" class="active">Student Dashboard</a>
+        <a href="#skilltracker">SkillTracker</a>
+        <a href="#skillvol">SkillVol</a>
+        <a href="#skillclubs">SkillClubs</a>
+        <a href="#skilltours">SkillTours</a>
+        <a href="#monitoring">Monitoring Hub</a>
+        <a href="#examprep">Exam Prep Hub</a>
+        <a href="#careerai">Career AI</a>
+      </nav>
+      <div class="nav-right">
+        <button class="icon-btn">🔍</button>
+        <button class="icon-btn">⚙️</button>
+        <div class="avatar"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Profile header / Dashboard top -->
+    <section class="profile-header">
+      <div class="profile-main-info">
+        <div class="profile-avatar"></div>
+        <div>
+          <div class="profile-name">Sara Hassan</div>
+          <div class="profile-meta">
+            Grade 10 • Gifted Program • Riyadh Secondary School
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-outline">Edit Profile</button>
+    </section>
+
+    <!-- Stats + SkillTracker short -->
+    <section class="stats-grid">
+      <div class="stat-card stat-projects">
+        <div class="stat-label">Projects</div>
+        <div class="stat-value">12</div>
+      </div>
+      <div class="stat-card stat-volunteering">
+        <div class="stat-label">Volunteering Hours</div>
+        <div class="stat-value">26h</div>
+      </div>
+      <div class="stat-card stat-certs">
+        <div class="stat-label">Certifications</div>
+        <div class="stat-value">5</div>
+      </div>
+      <div class="stat-card stat-awards">
+        <div class="stat-label">Awards</div>
+        <div class="stat-value">3</div>
+      </div>
+    </section>
+
+    <section class="profile-layout" id="skilltracker">
+      <div class="card skill-card">
+        <h3>SkillTracker – Your Skill CV</h3>
+        <p>EduVance builds your real skill portfolio from projects, volunteering, clubs, awards, and trips.</p>
+        <div class="skill-bar-bg">
+          <div class="skill-bar-fill"></div>
+        </div>
+        <div class="skill-score-text">78%</div>
+        <p style="margin-top:0.5rem; font-size:0.9rem;">
+          Complete one more project and 2 volunteering hours to reach 82% skill score.
+        </p>
+      </div>
+
+      <div class="card about-card">
+        <h3>Today’s Dashboard</h3>
+        <p>
+          You have 1 active project to complete, 1 recommended volunteering activity, and a new Career AI suggestion.
+          Use the sections below to continue your journey from class to real-world impact.
+        </p>
+      </div>
+    </section>
+
+    <!-- SkillVol -->
+    <section class="section" id="skillvol">
+      <h2 class="section-title">SkillVol – Volunteering Linked to Lessons</h2>
+      <div class="tab-content-grid">
+        <div class="activity-card">
+          <div class="activity-title">Healthy Lifestyle Awareness Campaign</div>
+          <div class="activity-desc">
+            A volunteering activity connected to your biology unit on obesity and public health.
+          </div>
+          <span class="badge">3 Hours</span>
+          <span class="badge">Biology</span>
+          <span class="badge">Community</span>
+        </div>
+        <div class="activity-card">
+          <div class="activity-title">School Recycling Drive</div>
+          <div class="activity-desc">
+            Collect and sort recyclable materials as a follow-up to your environmental science lesson.
+          </div>
+          <span class="badge">2 Hours</span>
+          <span class="badge">Environment</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SkillClubs -->
+    <section class="section" id="skillclubs">
+      <h2 class="section-title">SkillClubs – Your School Clubs</h2>
+      <div class="hub-grid">
+        <div class="hub-card">
+          <div class="hub-icon" style="background:#cbe5ff;">🤖</div>
+          <h3>Robotics Club (Member)</h3>
+          <p>Weekly sessions on building and programming robots for competitions.</p>
+        </div>
+        <div class="hub-card">
+          <div class="hub-icon" style="background:#d8ffd9;">🌍</div>
+          <h3>Environment Club (Leader)</h3>
+          <p>Leading campaigns and projects on sustainability and biodiversity.</p>
+        </div>
+        <div class="hub-card">
+          <div class="hub-icon" style="background:#ffe1f5;">🎨</div>
+          <h3>Creative Arts Club</h3>
+          <p>Optional club for designing posters and branding for school initiatives.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SkillTours -->
+    <section class="section" id="skilltours">
+      <h2 class="section-title">SkillTours – Learning Trips</h2>
+      <div class="tab-content-grid">
+        <div class="activity-card">
+          <div class="activity-title">Visit: Water Desalination Plant</div>
+          <div class="activity-desc">
+            A trip linked to your chemistry and environmental science lessons to see real desalination processes.
+          </div>
+          <span class="badge">Upcoming</span>
+          <span class="badge">Science</span>
+        </div>
+        <div class="activity-card">
+          <div class="activity-title">Biology Lab Experience</div>
+          <div class="activity-desc">
+            Hands-on lab activities tied to your current unit on cells and microbes.</div>
+          <span class="badge">Completed</span>
+          <span class="badge">Biology</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Monitoring Hub (Mentorship + Smart Nomination) -->
+    <section class="section" id="monitoring">
+      <h2 class="section-title">Monitoring Hub – Mentorship & Smart Nomination</h2>
+      <div class="two-column">
+        <div class="card">
+          <h3 style="margin-bottom:0.5rem;">Mentorship Hub</h3>
+          <p class="activity-desc">
+            Work with expert mentors on ISEF-style research, robotics, innovation, and Olympiad preparation.
+          </p>
+          <div class="tab-content-grid" style="margin-top:0.8rem;">
+            <div class="activity-card">
+              <div class="activity-title">ISEF Research Mentor – Dr. Ahmed</div>
+              <div class="activity-desc">2 active sessions scheduled this month.</div>
+              <span class="badge">Research</span>
+              <span class="badge">Online</span>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom:0.5rem;">Smart Nomination System</h3>
+          <p class="activity-desc">
+            EduVance automatically compares your SkillTracker profile with competition requirements to suggest fair nominations.
+          </p>
+          <div class="activity-card" style="margin-top:0.8rem;">
+            <div class="activity-title">Robotics National Competition</div>
+            <div class="activity-desc">
+              You match <strong>85%</strong> of the required skills. Complete one more robotics project to reach 95% match.
+            </div>
+            <span class="badge">Suggested</span>
+            <span class="badge">Robotics</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exam Prep Hub -->
+    <section class="section" id="examprep">
+      <h2 class="section-title">Exam Prep Hub – Qiyas, STEP, IELTS</h2>
+      <div class="two-column">
+        <div class="card">
+          <h3 style="margin-bottom:0.4rem;">Live & Recorded Courses</h3>
+          <p class="activity-desc">
+            Follow structured courses for Qiyas, achievement tests, STEP, and IELTS with expert teachers.
+          </p>
+          <ul style="margin-top:0.7rem; font-size:0.9rem; color:var(--text-soft); padding-left:1.1rem;">
+            <li>Qiyas Quantitative Basics – 40% completed</li>
+            <li>STEP Reading Strategies – New module available</li>
+            <li>IELTS Speaking Practice – Booking open</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom:0.4rem;">Your Progress</h3>
+          <p class="activity-desc">
+            Track your mock scores, weak areas, and recommended practice sets.
+          </p>
+          <div class="activity-card" style="margin-top:0.8rem;">
+            <div class="activity-title">Qiyas Mock Test 3</div>
+            <div class="activity-desc">
+              Score: 78/100 • Recommended focus: Geometry & Data Interpretation.
+            </div>
+            <span class="badge">Math</span>
+            <span class="badge">Practice</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Career AI -->
+    <section class="section" id="careerai">
+      <h2 class="section-title">Career AI – Future Major & Scholarships</h2>
+      <div class="two-column">
+        <div class="card">
+          <h3 style="margin-bottom:0.4rem;">Suggested Majors</h3>
+          <p class="activity-desc">
+            Based on your SkillTracker portfolio, Career AI suggests majors that match your strengths and interests.
+          </p>
+          <ul style="margin-top:0.7rem; font-size:0.9rem; color:var(--text-soft); padding-left:1.1rem;">
+            <li>Computer Engineering (High match)</li>
+            <li>Environmental Engineering (High match)</li>
+            <li>Biomedical Engineering (Medium match)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom:0.4rem;">Scholarships & Opportunities</h3>
+          <p class="activity-desc">
+            Highlighted programs where your current profile is strong enough to apply.
+          </p>
+          <div class="activity-card" style="margin-top:0.8rem;">
+            <div class="activity-title">STEM Excellence Scholarship</div>
+            <div class="activity-desc">
+              Requirements: Strong STEM projects, volunteering, and competition participation. Your profile: Good fit.
+            </div>
+            <span class="badge">Scholarship</span>
+            <span class="badge">STEM</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download skill portfolio -->
+    <section class="card download-card">
+      <h3 style="margin-bottom:0.4rem;">Skill Portfolio</h3>
+      <p style="font-size:0.9rem; color:var(--text-soft); margin-bottom:0.9rem;">
+        Download a full PDF of your projects, volunteering, awards, clubs, and exam prep summary.
+      </p>
+      <button class="btn btn-primary">Download Skill Portfolio (PDF)</button>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-links">
+        <span>Contact</span>
+        <span>Privacy</span>
+        <span>About EduVance</span>
+      </div>
+      <span>© 2025 EduVance</span>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
