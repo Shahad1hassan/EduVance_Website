@@ -1,0 +1,439 @@
+/* Courses Page Styles */
+
+.courses-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.courses-header-left h1 {
+  font-size: 1.8rem;
+  color: var(--text-main);
+}
+
+.courses-header-left p {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  margin-top: 0.3rem;
+}
+
+.sort-container {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.sort-label {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.filter-select {
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--border-soft);
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--text-main);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.filter-select:hover {
+  border-color: var(--primary);
+}
+
+.view-toggle {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.view-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border-soft);
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.view-btn:hover {
+  border-color: var(--primary);
+}
+
+.view-btn.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.course-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.course-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15);
+}
+
+.course-image-container {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Course 1: Web Development */
+.course-image-container.style-1 {
+  background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=300&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Course 2: Python Programming */
+.course-image-container.style-2 {
+  background-image: url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=500&h=300&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Course 3: UX/UI Design */
+.course-image-container.style-3 {
+  background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=300&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Course 4: Mobile App Development */
+.course-image-container.style-4 {
+  background-image: url('https://media.istockphoto.com/id/1174690086/photo/software-developer-freelancer-working-at-home.webp?s=2048x2048&w=is&k=20&c=646QAkjea7Zrtm3mLLO-fK9tvjGQfs4dyZu-EFwZ0V8=');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Course 5: Big Data and Data Science */
+.course-image-container.style-5 {
+  background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Course 6: AI/ML */
+.course-image-container.style-6 {
+  background-image: url('https://images.unsplash.com/photo-1674027444485-cec3da58eef4?w=500&h=300&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Course 7: Digital Marketing */
+.course-image-container.style-7 {
+  background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&h=300&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Course 8: Cloud Computing and AWS */
+.course-image-container.style-8 {
+  background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&h=300&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Course 9: Cybersecurity */
+.course-image-container.style-9 {
+  background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=500&h=300&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.course-content {
+  padding: 1.5rem;
+}
+
+.course-badge {
+  display: inline-block;
+  background: var(--primary-soft);
+  color: var(--primary);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.course-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.8rem;
+  min-height: 2.4rem;
+  line-height: 1.2;
+}
+
+.course-instructor {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.instructor-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid var(--border-soft);
+  flex-shrink: 0;
+}
+
+.instructor-info {
+  font-size: 0.9rem;
+  flex: 1;
+}
+
+.instructor-name {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.instructor-title {
+  color: var(--text-soft);
+  font-size: 0.85rem;
+}
+
+.course-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  margin-bottom: 1rem;
+}
+
+.course-rating {
+  color: var(--yellow);
+  font-weight: 600;
+}
+
+.course-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.learn-more-btn {
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  flex: 1;
+  text-align: center;
+}
+
+.learn-more-btn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.price {
+  font-weight: 700;
+  color: var(--green);
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: white;
+  border-radius: var(--radius-lg);
+  max-width: 600px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-soft);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.modal-header h2 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.modal-section {
+  margin-bottom: 1.5rem;
+}
+
+.modal-section h3 {
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin-bottom: 0.7rem;
+  font-weight: 700;
+}
+
+.modal-section p {
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+.course-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.detail-item {
+  background: var(--primary-soft);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.detail-item strong {
+  color: var(--primary);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.detail-item span {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.enroll-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.9rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.enroll-btn:hover {
+  background: #6c4de0;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sort-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
