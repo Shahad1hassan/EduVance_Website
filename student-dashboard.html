@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EduVance – Student Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+<div class="page">
+
+<!-- Navbar -->
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">EduVance</a>
+    <nav class="nav-links">
+      <a href="courses.html">Courses</a>
+      <a href="SkillTracker.html">SkillTracker</a>
+      <a href="student-dashboard.html#skillvol">SkillVol</a>
+      <a href="student-dashboard.html#skillclubs">SkillClubs</a>
+      <a href="student-dashboard.html#skilltours">SkillTours</a>
+      <a href="student-dashboard.html#monitoring">Monitoring Hub</a>
+      <a href="student-dashboard.html#examprep">Exam Prep Hub</a>
+      <a href="student-dashboard.html#careerai">Career AI</a>
+
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn">🔍</button>
+      <button class="icon-btn">🔔</button>
+      <a href="student-dashboard.html" title="Student Dashboard" class="avatar-link">
+        <img
+          src="./student.png"
+          alt="Student Avatar"
+          class="avatar-img"
+        />
+      </a>
+    </div>
+  </div>
+</header>
+
+  <main class="container">
+
+    <!-- Dashboard Header -->
+    <section class="dash-hero">
+      <div class="dash-hero-left">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>Student Dashboard</span>
+        </div>
+
+        <h1 class="dash-title">Welcome back, Sara 👋</h1>
+        <p class="hero-subtitle">
+          Track your skills, clubs, volunteering, and exam preparation — all in one consistent dashboard experience.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="courses.html">Explore Courses</a>
+          <a class="btn btn-soft" href="#skilltracker">View SkillTracker</a>
+        </div>
+      </div>
+
+      <div class="dash-hero-right">
+        <div class="dash-profile-card">
+          <div class="dash-profile-top">
+            <div class="dash-profile-avatar">
+              <img src="./student.png" alt="Sara Hassan" />
+            </div>
+            <div>
+              <div class="dash-profile-name">Sara Hassan</div>
+              <div class="dash-profile-meta">Grade 10 • Gifted Program</div>
+              <div class="dash-profile-meta">Riyadh Secondary School</div>
+            </div>
+          </div>
+
+          <div class="dash-mini-grid">
+            <div class="dash-mini">
+              <div class="dash-mini-label">Weekly Goal</div>
+              <div class="dash-mini-value">78%</div>
+              <div class="progress-bar" style="margin-top:8px;">
+                <div class="progress-fill" style="width:78%"></div>
+              </div>
+            </div>
+
+            <div class="dash-mini">
+              <div class="dash-mini-label">Next Focus</div>
+              <div class="dash-mini-value">Geometry</div>
+              <div class="dash-mini-sub">Exam Prep</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="dash-stats">
+      <div class="stat">
+        <div class="stat-number">12</div>
+        <div class="stat-label">Projects</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">26h</div>
+        <div class="stat-label">Volunteering</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Certificates</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Awards</div>
+      </div>
+    </section>
+
+    <!-- SkillTracker -->
+    <section class="section" id="skilltracker">
+      <h2 class="section-title">SkillTracker</h2>
+
+      <div class="dash-two">
+        <div class="card dash-card">
+          <div class="dash-card-head">
+            <div class="dash-icon" style="background:#e0ecff;">📊</div>
+            <div>
+              <div class="dash-card-title">Your Skill CV Score</div>
+              <div class="dash-card-sub">Based on projects, volunteering, clubs, and awards</div>
+            </div>
+          </div>
+
+          <div class="dash-score">
+            <div class="dash-score-number">78%</div>
+            <div class="dash-score-meta">Good progress — keep going!</div>
+          </div>
+
+          <div class="progress-bar">
+            <div class="progress-fill" style="width:78%"></div>
+          </div>
+
+          <div class="dash-hint">
+            Complete <strong>1 project</strong> + add <strong>2 hours volunteering</strong> to reach <strong>82%</strong>.
+          </div>
+        </div>
+
+        <div class="card dash-card">
+          <div class="dash-card-head">
+            <div class="dash-icon" style="background:#f3ecff;">🧭</div>
+            <div>
+              <div class="dash-card-title">Today’s Highlights</div>
+              <div class="dash-card-sub">What you should do next</div>
+            </div>
+          </div>
+
+          <div class="dash-list">
+            <div class="dash-item">
+              <div class="dash-item-title">Finish “Robotics Sensor Mini Project”</div>
+              <div class="dash-item-sub">Project • Due in 3 days</div>
+            </div>
+            <div class="dash-item">
+              <div class="dash-item-title">Join “School Recycling Drive”</div>
+              <div class="dash-item-sub">Volunteering • 2 hours</div>
+            </div>
+            <div class="dash-item">
+              <div class="dash-item-title">Practice: Qiyas Geometry Set</div>
+              <div class="dash-item-sub">Exam Prep • 20 questions</div>
+            </div>
+          </div>
+
+          <a class="btn btn-soft" href="courses.html" style="margin-top:12px;">Open Courses</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exam Prep Hub -->
+    <section class="section" id="examprep">
+      <h2 class="section-title">Exam Prep Hub</h2>
+      <div class="dash-two">
+        <div class="card dash-card">
+          <div class="dash-card-head">
+            <div class="dash-icon" style="background:#fff9e6;">📝</div>
+            <div>
+              <div class="dash-card-title">Courses & Modules</div>
+              <div class="dash-card-sub">STEP • Qiyas • IELTS</div>
+            </div>
+          </div>
+          <div class="dash-list">
+            <div class="dash-item">
+              <div class="dash-item-title">Qiyas Quant Basics</div>
+              <div class="dash-item-sub">40% completed</div>
+            </div>
+            <div class="dash-item">
+              <div class="dash-item-title">STEP Reading Strategies</div>
+              <div class="dash-item-sub">New module available</div>
+            </div>
+          </div>
+          <a class="btn btn-soft" href="courses.html" style="margin-top:12px;">Open Exam Courses</a>
+        </div>
+
+        <!-- CLICKABLE TEST CARD (opens modal with verbal + quant) -->
+        <div class="card dash-card clickable"
+             id="qiyasTestCard"
+             role="button"
+             tabindex="0"
+             aria-label="Open Qiyas Mock Test details">
+          <div class="dash-card-head">
+            <div class="dash-icon" style="background:#fff9e6;">📈</div>
+            <div>
+              <div class="dash-card-title">Your Progress</div>
+              <div class="dash-card-sub">Mocks, weak areas, practice sets</div>
+            </div>
+          </div>
+
+          <div class="dash-item" style="margin-top:10px;">
+            <div class="dash-item-title">Qiyas Mock Test 3</div>
+            <div class="dash-item-sub">
+              Total: 78/100 • Focus: Geometry & Data Interpretation
+              <span style="display:block; margin-top:6px; color:#3b82f6; font-weight:600;">
+                View score details →
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Career AI -->
+    <section class="section" id="careerai">
+      <h2 class="section-title">Career AI</h2>
+      <div class="dash-two">
+        <div class="card dash-card">
+          <div class="dash-card-head">
+            <div class="dash-icon" style="background:#e2fcd9;">🎯</div>
+            <div>
+              <div class="dash-card-title">Suggested Majors</div>
+              <div class="dash-card-sub">Based on your skill profile</div>
+            </div>
+          </div>
+          <div class="dash-list">
+            <div class="dash-item">
+              <div class="dash-item-title">Computer Engineering</div>
+              <div class="dash-item-sub">High match</div>
+            </div>
+            <div class="dash-item">
+              <div class="dash-item-title">Environmental Engineering</div>
+              <div class="dash-item-sub">High match</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card dash-card">
+          <div class="dash-card-head">
+            <div class="dash-icon" style="background:#e2fcd9;">🎓</div>
+            <div>
+              <div class="dash-card-title">Scholarships</div>
+              <div class="dash-card-sub">Opportunities you can apply for</div>
+            </div>
+          </div>
+          <div class="dash-item">
+            <div class="dash-item-title">STEM Excellence Scholarship</div>
+            <div class="dash-item-sub">Good fit • Strengthen STEM projects to increase chances</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download card -->
+    <section class="card dash-download">
+      <h3 style="margin:0 0 0.35rem;">Skill Portfolio</h3>
+      <p style="margin:0; color:var(--text-soft); font-size:0.92rem;">
+        Download a full PDF of your projects, volunteering, clubs, awards, and exam prep summary.
+      </p>
+      <div style="margin-top:0.9rem;">
+        <button class="btn btn-primary" type="button">Download Skill Portfolio (PDF)</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-links">
+        <span>Contact</span>
+        <span>Privacy</span>
+        <span>About EduVance</span>
+      </div>
+      <span>© 2026 EduVance</span>
+    </div>
+  </footer>
+
+</div>
+
+<!-- Score Details Modal -->
+<div class="score-modal" id="scoreModal" role="dialog" aria-modal="true" aria-labelledby="scoreModalTitle">
+  <div class="modal-content">
+    <button class="close" type="button" id="closeModal" aria-label="Close">×</button>
+
+    <h3 class="modal-title" id="scoreModalTitle">Qiyas Mock Test 3 — Score Details</h3>
+    <p class="modal-sub">Breakdown by sections (Quantitative + Verbal).</p>
+
+    <!-- You can change these numbers anytime -->
+    <div class="score-row">
+      <span>Quantitative</span>
+      <strong id="quantScore">42 / 60</strong>
+    </div>
+    <div class="score-row">
+      <span>Verbal</span>
+      <strong id="verbalScore">36 / 40</strong>
+    </div>
+    <div class="score-row total">
+      <span><strong>Total</strong></span>
+      <strong id="totalScore">78 / 100</strong>
+    </div>
+
+    <p class="note">
+      Tip: Focus next on Geometry + Data Interpretation. If you raise Quant by +6 points, your total becomes 84/100.
+    </p>
+  </div>
+</div>
+<script src="modal.js"></script>
+
+</body>
+</html>
