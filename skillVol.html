@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillVol | EduVance</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="page">
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="logo" style="text-decoration:none;color:inherit;">EduVance</a>
+    <nav class="nav-links">
+      <a href="courses.html">Courses</a>
+      <a href="SkillTracker.html">SkillTracker</a>
+      <a href="skillvol.html" class="active">SkillVol</a>
+      <a href="skillclubs.html">SkillClubs</a>
+      <a href="skilltours.html">SkillTours</a>
+      <a href="monitoring.html">Monitoring Hub</a>
+      <a href="examprep.html">Exam Prep Hub</a>
+      <a href="careerai.html">Career AI</a>
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn">🔍</button>
+      <button class="icon-btn">🔔</button>
+      <a href="student-dashboard.html" class="avatar-link"><img src="./student.png" alt="Student Avatar" class="avatar-img"/></a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<main class="container">
+
+  <section class="sv-hero">
+    <div>
+      <div class="hero-badge"><span class="badge-dot"></span><span>SkillVol</span></div>
+      <h1 class="sv-hero-title">Volunteering That Matters</h1>
+      <p class="sv-hero-sub">Every volunteer activity is directly connected to a lesson you're studying. Build real skills, earn official hours, and make a genuine impact in your community.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary">＋ Log Volunteering</button>
+        <a class="btn btn-soft" href="SkillTracker.html">View in SkillTracker</a>
+      </div>
+    </div>
+    <div class="sv-stats-card">
+      <div class="sv-stats-grid">
+        <div class="sv-stat"><div class="sv-stat-num" style="color:#16a34a;">26</div><div class="sv-stat-label">Total Hours</div></div>
+        <div class="sv-stat"><div class="sv-stat-num" style="color:#7a5af5;">3</div><div class="sv-stat-label">Activities</div></div>
+        <div class="sv-stat"><div class="sv-stat-num" style="color:#2563eb;">2</div><div class="sv-stat-label">Completed</div></div>
+        <div class="sv-stat"><div class="sv-stat-num" style="color:#b45309;">1</div><div class="sv-stat-label">In Progress</div></div>
+      </div>
+      <div class="sv-progress-section">
+        <div class="sv-progress-label"><span>Progress to 40-Hour Goal</span><span>65%</span></div>
+        <div class="sv-prog-bar"><div class="sv-prog-fill" style="width:65%"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Your Activities -->
+  <section style="margin-top:1.6rem;">
+    <div class="sv-sec-head">
+      <div><h2>Your Volunteering Activities</h2><p>Each activity is linked to a specific lesson and tracks your hours officially.</p></div>
+      <button class="sv-add-btn">＋ Log Activity</button>
+    </div>
+    <div class="sv-list">
+      <div class="sv-item">
+        <div class="sv-item-icon" style="background:#dcfce7;">🐾</div>
+        <div class="sv-item-content">
+          <h3>Animal Shelter Volunteering</h3>
+          <p>Assisted at the local animal shelter with daily care routines and helped organize a community adoption drive to find homes for shelter animals.</p>
+          <div class="sv-item-footer">
+            <span class="sv-hours-pill">12 hours</span>
+            <span class="sv-lesson-pill">📚 Biology – Ecosystems</span>
+            <span class="sv-status-pill sv-status-done">✓ Approved</span>
+          </div>
+        </div>
+      </div>
+      <div class="sv-item">
+        <div class="sv-item-icon" style="background:#dbeafe;">♻️</div>
+        <div class="sv-item-content">
+          <h3>School Recycling Drive</h3>
+          <p>Coordinated a school-wide effort to sort and collect recyclable materials. Over 200 kg of waste was diverted from landfill over two weeks.</p>
+          <div class="sv-item-footer">
+            <span class="sv-hours-pill">8 hours</span>
+            <span class="sv-lesson-pill">📚 Environmental Science – Waste Management</span>
+            <span class="sv-status-pill sv-status-done">✓ Approved</span>
+          </div>
+        </div>
+      </div>
+      <div class="sv-item">
+        <div class="sv-item-icon" style="background:#fef3c7;">🧪</div>
+        <div class="sv-item-content">
+          <h3>Science Workshop for Grade 6</h3>
+          <p>Planned and delivered a hands-on chemistry workshop teaching younger students about chemical reactions through safe, interactive experiments.</p>
+          <div class="sv-item-footer">
+            <span class="sv-hours-pill">6 hours</span>
+            <span class="sv-lesson-pill">📚 Chemistry – Reactions</span>
+            <span class="sv-status-pill sv-status-open">⏳ Pending Approval</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Opportunities -->
+  <section class="sv-opportunities">
+    <div class="sv-sec-head">
+      <div><h2>Open Opportunities</h2><p>Volunteering activities currently available and linked to your upcoming lessons.</p></div>
+    </div>
+    <div class="sv-opp-grid">
+      <div class="sv-opp-card">
+        <div class="sv-opp-icon" style="background:#e0f2fe;">🌊</div>
+        <h4>Beach Cleanup Campaign</h4>
+        <p>Join the coastal cleanup organized with the local municipality to protect marine ecosystems.</p>
+        <div class="sv-opp-meta">
+          <span class="sv-lesson-pill">Physics – Energy</span>
+          <span class="sv-hours-pill">4 hrs</span>
+        </div>
+      </div>
+      <div class="sv-opp-card">
+        <div class="sv-opp-icon" style="background:#ede9fe;">🏥</div>
+        <h4>Health Awareness Day</h4>
+        <p>Help organize and run a student health screening and awareness event at school.</p>
+        <div class="sv-opp-meta">
+          <span class="sv-lesson-pill">Biology – Human Body</span>
+          <span class="sv-hours-pill">3 hrs</span>
+        </div>
+      </div>
+      <div class="sv-opp-card">
+        <div class="sv-opp-icon" style="background:#dcfce7;">🌳</div>
+        <h4>Tree Planting Initiative</h4>
+        <p>Plant 50 trees in the school compound as part of a national reforestation project.</p>
+        <div class="sv-opp-meta">
+          <span class="sv-lesson-pill">Biology – Plant Life</span>
+          <span class="sv-hours-pill">5 hrs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="sv-cta">
+    <div><h3>🏅 Keep Volunteering</h3><p>You're 14 hours away from earning the <strong style="color:#fff;">Gold Volunteer Badge</strong>. Keep up the amazing work!</p></div>
+    <button class="sv-cta-btn">Find More Activities</button>
+  </div>
+
+</main>
+<footer class="footer"><div class="footer-inner container"><p>&copy; 2026 EduVance. All rights reserved.</p></div></footer>
+</div>
+
+
+<!-- Slide-out Drawer Menu -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <a href="index.html" class="drawer-logo">EduVance</a>
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">&#x2715;</button>
+  </div>
+  <div class="drawer-profile">
+    <img src="./student.png" alt="Sara">
+    <div class="drawer-profile-info">
+      <h4>Sara Hassan</h4>
+      <span>Grade 10 &bull; Gifted Program</span>
+    </div>
+  </div>
+  <div class="drawer-nav">
+    <div class="drawer-section-label">Main</div>
+    <a href="index.html" id="drawer-home">
+      <span class="drawer-icon" style="background:#e0ecff;">&#x1F3E0;</span> Home
+    </a>
+    <a href="student-dashboard.html" id="drawer-dashboard">
+      <span class="drawer-icon" style="background:#f3ecff;">&#x1F4CC;</span> Dashboard
+    </a>
+    <div class="drawer-section-label">Hubs</div>
+    <a href="SkillTracker.html" id="drawer-skilltracker">
+      <span class="drawer-icon" style="background:#e0ecff;">&#x1F4CA;</span> SkillTracker
+    </a>
+    <a href="skillvol.html" id="drawer-skillvol">
+      <span class="drawer-icon" style="background:#e1fff0;">&#x1F91D;</span> SkillVol
+    </a>
+    <a href="skillclubs.html" id="drawer-skillclubs">
+      <span class="drawer-icon" style="background:#ffe5f2;">&#x1F465;</span> SkillClubs
+    </a>
+    <a href="skilltours.html" id="drawer-skilltours">
+      <span class="drawer-icon" style="background:#ffe7c2;">&#x1F68C;</span> SkillTours
+    </a>
+    <a href="monitoring.html" id="drawer-monitoring">
+      <span class="drawer-icon" style="background:#f3ecff;">&#x1F9ED;</span> Monitoring Hub
+    </a>
+    <div class="drawer-section-label">Learning</div>
+    <a href="courses.html" id="drawer-courses">
+      <span class="drawer-icon" style="background:#e0f2fe;">&#x1F393;</span> Courses
+    </a>
+    <a href="examprep.html" id="drawer-examprep">
+      <span class="drawer-icon" style="background:#fff9e6;">&#x1F4DD;</span> Exam Prep Hub
+    </a>
+    <a href="careerai.html" id="drawer-careerai">
+      <span class="drawer-icon" style="background:#e2fcd9;">&#x1F916;</span> Career AI
+    </a>
+    <div class="drawer-section-label">About</div>
+    <a href="about.html" id="drawer-about">
+      <span class="drawer-icon" style="background:#dbeafe;">&#x2139;&#xFE0F;</span> About EduVance
+    </a>
+  </div>
+  <div class="drawer-footer">
+    <p>&copy; 2026 EduVance. All rights reserved.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var burger  = document.getElementById('hamburgerBtn');
+  var overlay = document.getElementById('drawerOverlay');
+  var drawer  = document.getElementById('drawer');
+  function open(){
+    burger.classList.add('open');
+    overlay.classList.add('open');
+    drawer.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function close(){
+    burger.classList.remove('open');
+    overlay.classList.remove('open');
+    drawer.classList.remove('open');
+    document.body.style.overflow='';
+  }
+  burger.addEventListener('click',open);
+  overlay.addEventListener('click',close);
+  document.getElementById('drawerClose').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  var page=window.location.pathname.split('/').pop()||'index.html';
+  var map={
+    'index.html':'drawer-home',
+    'student-dashboard.html':'drawer-dashboard',
+    'SkillTracker.html':'drawer-skilltracker',
+    'skillvol.html':'drawer-skillvol',
+    'skillclubs.html':'drawer-skillclubs',
+    'skilltours.html':'drawer-skilltours',
+    'monitoring.html':'drawer-monitoring',
+    'courses.html':'drawer-courses',
+    'examprep.html':'drawer-examprep',
+    'careerai.html':'drawer-careerai',
+    'about.html':'drawer-about'
+  };
+  var id=map[page];
+  if(id){var el=document.getElementById(id);if(el)el.classList.add('active');}
+})();
+</script>
+
+</body>
+</html>

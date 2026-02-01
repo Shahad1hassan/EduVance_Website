@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillTracker | EduVance</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+
+<!-- Navbar -->
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="logo" style="text-decoration:none;color:inherit;">EduVance</a>
+    <nav class="nav-links">
+      <a href="courses.html">Courses</a>
+      <a href="SkillTracker.html" class="active">SkillTracker</a>
+      <a href="skillvol.html">SkillVol</a>
+      <a href="skillclubs.html">SkillClubs</a>
+      <a href="skilltours.html">SkillTours</a>
+      <a href="monitoring.html">Monitoring Hub</a>
+      <a href="examprep.html">Exam Prep Hub</a>
+      <a href="careerai.html">Career AI</a>
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn">🔍</button>
+      <button class="icon-btn">🔔</button>
+      <a href="student-dashboard.html" class="avatar-link">
+        <img src="./student.png" alt="Student Avatar" class="avatar-img"/>
+      </a>
+          <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- Hero -->
+  <section class="st-hero">
+    <div class="st-hero-left">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>SkillTracker</span>
+      </div>
+      <h1 class="st-hero-title">Your Skill Portfolio</h1>
+      <p class="st-hero-sub">
+        Everything that defines you as a student — projects, volunteering, achievements, clubs, and certifications — all tracked in one professional portfolio.
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="document.getElementById('projectModal').classList.add('open')">＋ Add Project</button>
+        <a class="btn btn-soft" href="student-dashboard.html">Go to Dashboard</a>
+      </div>
+    </div>
+
+    <!-- Score Ring -->
+    <div class="st-score-card">
+      <div class="st-score-ring">
+        <svg width="140" height="140" viewBox="0 0 140 140">
+          <defs>
+            <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7a5af5"/>
+              <stop offset="100%" stop-color="#4cb8ff"/>
+            </linearGradient>
+          </defs>
+          <circle class="ring-bg" cx="70" cy="70" r="56"></circle>
+          <circle class="ring-fill" cx="70" cy="70" r="56"
+                  stroke-dasharray="352"
+                  stroke-dashoffset="79"></circle>
+        </svg>
+        <div class="st-score-num">78%</div>
+      </div>
+      <div class="st-score-label">Skill CV Score</div>
+      <div class="st-score-hint">
+        Add <strong>1 project</strong> + <strong>2 hrs volunteering</strong> → reach <strong>82%</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- Summary Stats -->
+  <div class="st-summary">
+    <div class="st-sum-card">
+      <div class="st-sum-num" style="color:#7a5af5;">3</div>
+      <div class="st-sum-label">Projects</div>
+    </div>
+    <div class="st-sum-card">
+      <div class="st-sum-num" style="color:#16a34a;">26h</div>
+      <div class="st-sum-label">Volunteer Hours</div>
+    </div>
+    <div class="st-sum-card">
+      <div class="st-sum-num" style="color:#2563eb;">3</div>
+      <div class="st-sum-label">Achievements</div>
+    </div>
+    <div class="st-sum-card">
+      <div class="st-sum-num" style="color:#b45309;">2</div>
+      <div class="st-sum-label">Clubs</div>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="st-tabs">
+    <button class="st-tab active" data-tab="projects">📦 Projects</button>
+    <button class="st-tab" data-tab="volunteering">🤝 Volunteering</button>
+    <button class="st-tab" data-tab="achievements">🏆 Achievements</button>
+    <button class="st-tab" data-tab="clubs">👥 Clubs</button>
+  </div>
+
+  <!-- ─── PROJECTS ─── -->
+  <div class="st-panel active" id="panel-projects">
+    <div class="st-sec-head">
+      <div>
+        <h2>Completed Projects</h2>
+        <p>Real-world projects linked to your lessons that build your skill CV.</p>
+      </div>
+      <button class="st-add-btn" onclick="document.getElementById('projectModal').classList.add('open')">＋ Add Project</button>
+    </div>
+    <div class="st-grid">
+      <!-- Project 1 -->
+      <div class="st-card" onclick="openProject('biodiversity')">
+        <img class="st-card-img" src="BiodiversityCampaign.jpeg" alt="Biodiversity Campaign">
+        <div class="st-card-body">
+          <span class="st-card-badge badge-green">Biology • Community</span>
+          <h3>Biodiversity Awareness Campaign</h3>
+          <p>Organized a local awareness event about environmental sustainability with data collection and community outreach.</p>
+          <div class="st-card-meta">
+            <span>⏱ 3 months</span>
+            <span>🎯 Leadership, Communication</span>
+          </div>
+          <a class="st-card-link">View Full Project →</a>
+        </div>
+      </div>
+      <!-- Project 2 -->
+      <div class="st-card" onclick="openProject('arduino')">
+        <img class="st-card-img" src="ArduinoRobot.webp" alt="Arduino Robot">
+        <div class="st-card-body">
+          <span class="st-card-badge badge-purple">Robotics • Engineering</span>
+          <h3>Arduino Robot Prototype</h3>
+          <p>Built a functional robot prototype using Arduino to demonstrate robotics principles and problem-solving.</p>
+          <div class="st-card-meta">
+            <span>⏱ 2 weeks</span>
+            <span>🎯 Programming, Design</span>
+          </div>
+          <a class="st-card-link">View Full Project →</a>
+        </div>
+      </div>
+      <!-- Project 3 -->
+      <div class="st-card" onclick="openProject('solarcar')">
+        <img class="st-card-img" src="SolarCar.webp" alt="solar car">
+        <div class="st-card-body">
+          <span class="st-card-badge badge-amber">Physics • Renewable Energy</span>
+          <h3>Solar-Powered Car Model</h3>
+          <p>Engineered a small solar car during the Physics renewable-energy unit to explore photovoltaic principles.</p>
+          <div class="st-card-meta">
+            <span>⏱ 3 weeks</span>
+            <span>🎯 Engineering, Teamwork</span>
+          </div>
+          <a class="st-card-link">View Full Project →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VOLUNTEERING -->
+  <div class="st-panel" id="panel-volunteering">
+    <div class="st-sec-head">
+      <div>
+        <h2>Volunteering Experience</h2>
+        <p>All volunteer work is linked to a course lesson via SkillVol and tracked officially.</p>
+      </div>
+      <button class="st-add-btn">＋ Add Volunteering</button>
+    </div>
+    <div class="st-list">
+      <div class="st-list-item">
+        <div class="st-list-icon" style="background:#dcfce7;">🐾</div>
+        <div class="st-list-content">
+          <h3>Animal Shelter Volunteering</h3>
+          <p>Assisted local shelter with animal care and organized a community adoption event linked to the Biology lesson on ecosystems.</p>
+          <div class="st-list-tags">
+            <span class="st-tag">12 hours</span>
+            <span class="st-tag">Teamwork</span>
+            <span class="st-tag">Animal Care</span>
+            <span class="st-tag">Community Outreach</span>
+          </div>
+        </div>
+      </div>
+      <div class="st-list-item">
+        <div class="st-list-icon" style="background:#dbeafe;">♻️</div>
+        <div class="st-list-content">
+          <h3>School Recycling Drive</h3>
+          <p>Led a school-wide recycling campaign that collected 200+ kg of recyclables. Connected to the Environmental Science lesson.</p>
+          <div class="st-list-tags">
+            <span class="st-tag">8 hours</span>
+            <span class="st-tag">Leadership</span>
+            <span class="st-tag">Environment</span>
+            <span class="st-tag">Coordination</span>
+          </div>
+        </div>
+      </div>
+      <div class="st-list-item">
+        <div class="st-list-icon" style="background:#fef3c7;">🧪</div>
+        <div class="st-list-content">
+          <h3>Science Workshop for Grade 6</h3>
+          <p>Designed and ran a hands-on chemistry workshop for younger students. Linked to the Chemistry lesson on reactions.</p>
+          <div class="st-list-tags">
+            <span class="st-tag">6 hours</span>
+            <span class="st-tag">Teaching</span>
+            <span class="st-tag">Chemistry</span>
+            <span class="st-tag">Mentoring</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACHIEVEMENTS -->
+  <div class="st-panel" id="panel-achievements">
+    <div class="st-sec-head">
+      <div>
+        <h2>Achievements & Certifications</h2>
+        <p>Awards, certificates, and recognitions that highlight your growth.</p>
+      </div>
+      <button class="st-add-btn">＋ Add Achievement</button>
+    </div>
+    <div class="st-list">
+      <div class="st-list-item">
+        <div class="st-list-icon" style="background:#fef3c7;">🏆</div>
+        <div class="st-list-content">
+          <h3>STEM Innovator Award</h3>
+          <p>Awarded for outstanding innovation in STEM projects across the school year.</p>
+          <div class="st-list-tags">
+            <span class="st-tag">Issued by: Riyadh Secondary School</span>
+            <span class="st-tag">May 2025</span>
+          </div>
+        </div>
+      </div>
+      <div class="st-list-item">
+        <div class="st-list-icon" style="background:#ede9fe;">🎖️</div>
+        <div class="st-list-content">
+          <h3>Robotics Club Best Project</h3>
+          <p>Won best project award at the inter-school robotics exhibition for the Arduino sensor prototype.</p>
+          <div class="st-list-tags">
+            <span class="st-tag">Inter-school Exhibition</span>
+            <span class="st-tag">Jan 2026</span>
+          </div>
+        </div>
+      </div>
+      <div class="st-list-item">
+        <div class="st-list-icon" style="background:#dbeafe;">📜</div>
+        <div class="st-list-content">
+          <h3>EduVance Course Completion Certificate</h3>
+          <p>Completed the "Python Programming for Beginners" course with a perfect score.</p>
+          <div class="st-list-tags">
+            <span class="st-tag">EduVance Platform</span>
+            <span class="st-tag">Dec 2025</span>
+            <span class="st-tag">100% Score</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLUBS -->
+  <div class="st-panel" id="panel-clubs">
+    <div class="st-sec-head">
+      <div>
+        <h2>Club Memberships</h2>
+        <p>Clubs you founded or joined — with your role and activity log.</p>
+      </div>
+      <button class="st-add-btn">＋ Add Club</button>
+    </div>
+    <div class="st-grid">
+      <div class="st-club-card">
+        <div class="st-club-icon" style="background:#ede9fe;">🤖</div>
+        <div class="st-club-info">
+          <h3>Robotics Club</h3>
+          <p>Build, program, and compete with school robotics teams in local and national competitions.</p>
+          <div class="st-club-role">
+            <span class="st-card-badge badge-purple">Founder & President</span>
+          </div>
+          <div class="st-list-tags" style="margin-top:0.5rem;">
+            <span class="st-tag">12 Members</span>
+            <span class="st-tag">Est. Sep 2025</span>
+          </div>
+        </div>
+      </div>
+      <div class="st-club-card">
+        <div class="st-club-icon" style="background:#dcfce7;">🌿</div>
+        <div class="st-club-info">
+          <h3>Green Environment Club</h3>
+          <p>Organize eco-friendly activities, recycling drives, and awareness campaigns at school.</p>
+          <div class="st-club-role">
+            <span class="st-card-badge badge-green">Vice President</span>
+          </div>
+          <div class="st-list-tags" style="margin-top:0.5rem;">
+            <span class="st-tag">8 Members</span>
+            <span class="st-tag">Est. Oct 2025</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Download Bar -->
+  <div class="st-download">
+    <div class="st-download-text">
+      <h3>📄 Export Your Skill Portfolio</h3>
+      <p>Download a full PDF including projects, volunteering, clubs, awards, and certifications.</p>
+    </div>
+    <button class="st-dl-btn">⬇ Download PDF</button>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner container">
+    <p>&copy; 2026 EduVance. All rights reserved.</p>
+  </div>
+</footer>
+</div>
+
+<!-- ─── Project Detail Modal ─── -->
+<div class="st-modal-overlay" id="projectModal">
+  <div class="st-modal">
+    <div class="st-modal-header">
+      <div>
+        <h2 id="pm-title"></h2>
+        <p id="pm-badge"></p>
+      </div>
+      <button class="st-modal-close" onclick="closeProjectModal()">×</button>
+    </div>
+    <div class="st-modal-body">
+      <div id="pm-img-wrap"></div>
+      <p id="pm-desc" style="color:var(--text-soft);font-size:0.9rem;line-height:1.6;margin:0 0 1rem;"></p>
+      <div id="pm-rows"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Tab switching
+document.querySelectorAll('.st-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.st-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.st-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+  });
+});
+
+// Project data
+const projects = {
+  biodiversity: {
+    title: 'Biodiversity Awareness Campaign',
+    badge: '🌱 Biology • Community',
+    img: 'BiodiversityCampaign.jpeg',
+    desc: 'Organized a local community event to raise awareness about environmental sustainability. Collected field data on local biodiversity, created visual materials, and coordinated with nearby parks for a guided nature walk.',
+    rows: [
+      ['Category','Biology • Community Impact'],
+      ['Duration','3 months'],
+      ['Skills','Leadership, Communication, Community Engagement'],
+      ['Lesson Link','Biodiversity & Ecosystems'],
+      ['Status','Completed ✅'],
+      ['SkillVol Hours','4 hours credited']
+    ]
+  },
+  arduino: {
+    title: 'Arduino Robot Prototype',
+    badge: '🤖 Robotics • Engineering',
+    img: 'ArduinoRobot.webp',
+    desc: 'Built a functional robot prototype using Arduino microcontroller and ultrasonic sensors. The robot can navigate obstacles autonomously, demonstrating basic robotics and programming principles.',
+    rows: [
+      ['Category','Robotics • Engineering'],
+      ['Duration','2 weeks'],
+      ['Skills','Programming, Engineering, Design'],
+      ['Lesson Link','Introduction to Robotics'],
+      ['Status','Completed ✅'],
+      ['Award','Robotics Club Best Project 🏆']
+    ]
+  },
+  solarcar: {
+    title: 'Solar-Powered Car Model',
+    badge: '☀️ Physics • Renewable Energy',
+    img: 'SolarCar.webp',
+    desc: 'Engineered a small solar-powered car using a photovoltaic panel and DC motor. The car completed a 5-meter track powered entirely by sunlight, demonstrating photovoltaic energy conversion principles.',
+    rows: [
+      ['Category','Physics • Renewable Energy'],
+      ['Duration','3 weeks'],
+      ['Skills','Engineering, Teamwork, Experimentation'],
+      ['Lesson Link','Renewable Energy Sources'],
+      ['Status','Completed ✅']
+    ]
+  }
+};
+
+function openProject(key) {
+  const p = projects[key];
+  if (!p) return;
+  document.getElementById('pm-title').textContent = p.title;
+  document.getElementById('pm-badge').textContent = p.badge;
+  document.getElementById('pm-desc').textContent = p.desc;
+
+  const imgWrap = document.getElementById('pm-img-wrap');
+  if (p.img) {
+    imgWrap.innerHTML = '<img src="' + p.img + '" alt="Project">';
+  } else {
+    imgWrap.innerHTML = '';
+  }
+
+  const rowsEl = document.getElementById('pm-rows');
+  rowsEl.innerHTML = p.rows.map(r =>
+    '<div class="st-modal-row"><span>' + r[0] + '</span><strong>' + r[1] + '</strong></div>'
+  ).join('');
+
+  document.getElementById('projectModal').classList.add('open');
+}
+
+function closeProjectModal() {
+  document.getElementById('projectModal').classList.remove('open');
+}
+
+// Close modal on overlay click
+document.getElementById('projectModal').addEventListener('click', function(e) {
+  if (e.target === this) closeProjectModal();
+});
+</script>
+
+
+<!-- ─── Slide-out Drawer Menu ─── -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <a href="index.html" class="drawer-logo">EduVance</a>
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">&#x2715;</button>
+  </div>
+  <div class="drawer-profile">
+    <img src="./student.png" alt="Sara">
+    <div class="drawer-profile-info">
+      <h4>Sara Hassan</h4>
+      <span>Grade 10 &bull; Gifted Program</span>
+    </div>
+  </div>
+  <div class="drawer-nav">
+    <div class="drawer-section-label">Main</div>
+    <a href="index.html" id="drawer-home">
+      <span class="drawer-icon" style="background:#e0ecff;">&#x1F3E0;</span> Home
+    </a>
+    <a href="student-dashboard.html" id="drawer-dashboard">
+      <span class="drawer-icon" style="background:#f3ecff;">&#x1F4CC;</span> Dashboard
+    </a>
+    <div class="drawer-section-label">Hubs</div>
+    <a href="SkillTracker.html" id="drawer-skilltracker">
+      <span class="drawer-icon" style="background:#e0ecff;">&#x1F4CA;</span> SkillTracker
+    </a>
+    <a href="skillvol.html" id="drawer-skillvol">
+      <span class="drawer-icon" style="background:#e1fff0;">&#x1F91D;</span> SkillVol
+    </a>
+    <a href="skillclubs.html" id="drawer-skillclubs">
+      <span class="drawer-icon" style="background:#ffe5f2;">&#x1F465;</span> SkillClubs
+    </a>
+    <a href="skilltours.html" id="drawer-skilltours">
+      <span class="drawer-icon" style="background:#ffe7c2;">&#x1F68C;</span> SkillTours
+    </a>
+    <a href="monitoring.html" id="drawer-monitoring">
+      <span class="drawer-icon" style="background:#f3ecff;">&#x1F9ED;</span> Monitoring Hub
+    </a>
+    <div class="drawer-section-label">Learning</div>
+    <a href="courses.html" id="drawer-courses">
+      <span class="drawer-icon" style="background:#e0f2fe;">&#x1F393;</span> Courses
+    </a>
+    <a href="examprep.html" id="drawer-examprep">
+      <span class="drawer-icon" style="background:#fff9e6;">&#x1F4DD;</span> Exam Prep Hub
+    </a>
+    <a href="careerai.html" id="drawer-careerai">
+      <span class="drawer-icon" style="background:#e2fcd9;">&#x1F916;</span> Career AI
+    </a>
+    <div class="drawer-section-label">About</div>
+    <a href="about.html" id="drawer-about">
+      <span class="drawer-icon" style="background:#dbeafe;">&#x2139;&#xFE0F;</span> About EduVance
+    </a>
+  </div>
+  <div class="drawer-footer">
+    <p>&copy; 2026 EduVance. All rights reserved.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var burger  = document.getElementById('hamburgerBtn');
+  var overlay = document.getElementById('drawerOverlay');
+  var drawer  = document.getElementById('drawer');
+  function open(){
+    burger.classList.add('open');
+    overlay.classList.add('open');
+    drawer.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function close(){
+    burger.classList.remove('open');
+    overlay.classList.remove('open');
+    drawer.classList.remove('open');
+    document.body.style.overflow='';
+  }
+  burger.addEventListener('click',open);
+  overlay.addEventListener('click',close);
+  document.getElementById('drawerClose').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  var page=window.location.pathname.split('/').pop()||'index.html';
+  var map={
+    'index.html':'drawer-home',
+    'student-dashboard.html':'drawer-dashboard',
+    'SkillTracker.html':'drawer-skilltracker',
+    'skillvol.html':'drawer-skillvol',
+    'skillclubs.html':'drawer-skillclubs',
+    'skilltours.html':'drawer-skilltours',
+    'monitoring.html':'drawer-monitoring',
+    'courses.html':'drawer-courses',
+    'examprep.html':'drawer-examprep',
+    'careerai.html':'drawer-careerai',
+    'about.html':'drawer-about'
+  };
+  var id=map[page];
+  if(id){var el=document.getElementById(id);if(el)el.classList.add('active');}
+})();
+</script>
+
+</body>
+</html>
