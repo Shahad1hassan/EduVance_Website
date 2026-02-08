@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam Prep Hub | EduVance</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .ep-hero { display:grid; grid-template-columns:1.2fr 0.8fr; gap:1.4rem; align-items:start; margin-top:1rem; }
+    .ep-hero-title { margin:0.8rem 0 0.5rem; font-size:2rem; line-height:1.15; }
+    .ep-hero-sub { color:var(--text-soft); margin:0 0 1rem; font-size:0.95rem; line-height:1.6; }
+
+    .ep-progress-card { background:#fff; border:1px solid var(--border-soft); border-radius:var(--radius-lg); box-shadow:var(--shadow-soft); padding:1.3rem; }
+    .ep-progress-card h3 { margin:0 0 0.8rem; font-size:1rem; }
+    .ep-prog-item { margin-bottom:0.8rem; }
+    .ep-prog-row { display:flex; justify-content:space-between; font-size:0.83rem; font-weight:700; margin-bottom:0.35rem; }
+    .ep-prog-row span:last-child { color:var(--text-soft); }
+    .ep-prog-bar { height:7px; background:#eef2f7; border-radius:999px; overflow:hidden; }
+    .ep-prog-fill { height:100%; border-radius:999px; }
+
+    .ep-exams { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; margin-top:1.4rem; }
+    .ep-exam-card { background:#fff; border:1px solid var(--border-soft); border-radius:var(--radius-lg); box-shadow:var(--shadow-soft); overflow:hidden; transition:transform 0.2s,box-shadow 0.2s; cursor:pointer; }
+    .ep-exam-card:hover { transform:translateY(-3px); box-shadow:0 16px 40px rgba(15,23,42,0.11); }
+    .ep-exam-top { height:90px; display:flex; align-items:center; justify-content:center; font-size:2rem; }
+    .ep-exam-body { padding:1rem; }
+    .ep-exam-body h3 { margin:0 0 0.2rem; font-size:0.97rem; }
+    .ep-exam-body > p { margin:0; color:var(--text-soft); font-size:0.82rem; line-height:1.5; }
+    .ep-exam-meta { display:flex; gap:0.5rem; margin-top:0.55rem; flex-wrap:wrap; }
+    .ep-pill { padding:2px 8px; border-radius:999px; font-size:0.72rem; font-weight:700; }
+    .ep-pill-purple { background:#ede9fe; color:var(--primary); }
+    .ep-pill-green  { background:#dcfce7; color:#16a34a; }
+    .ep-pill-blue   { background:#dbeafe; color:#2563eb; }
+    .ep-exam-footer { display:flex; justify-content:space-between; align-items:center; margin-top:0.7rem; }
+    .ep-exam-btn { background:var(--primary); color:#fff; border:none; padding:0.4rem 0.9rem; border-radius:999px; font-size:0.8rem; font-weight:700; cursor:pointer; }
+    .ep-exam-btn:hover { background:#6c4de0; }
+
+    .ep-two { display:grid; grid-template-columns:1.1fr 0.9fr; gap:1rem; margin-top:1.4rem; }
+    .ep-card { background:#fff; border:1px solid var(--border-soft); border-radius:var(--radius-lg); box-shadow:var(--shadow-soft); padding:1.1rem; }
+    .ep-card h3 { margin:0 0 0.7rem; font-size:1rem; }
+    .ep-course-list { display:flex; flex-direction:column; gap:0.6rem; }
+    .ep-course-item { display:flex; gap:0.7rem; align-items:center; padding:0.65rem 0.75rem; background:#f7f8fc; border:1px solid var(--border-soft); border-radius:var(--radius-sm); transition:background 0.15s; cursor:pointer; }
+    .ep-course-item:hover { background:#ede9fe; }
+    .ep-course-icon { width:34px; height:34px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
+    .ep-course-info { flex:1; min-width:0; }
+    .ep-course-info h4 { margin:0; font-size:0.88rem; }
+    .ep-course-info span { color:var(--text-soft); font-size:0.76rem; }
+    .ep-course-progress { width:60px; text-align:right; }
+    .ep-course-progress strong { font-size:0.82rem; color:var(--primary); }
+
+    .ep-mock-list { display:flex; flex-direction:column; gap:0.6rem; }
+    .ep-mock-item { display:flex; gap:0.7rem; align-items:center; padding:0.7rem 0.8rem; background:#f7f8fc; border:1px solid var(--border-soft); border-radius:var(--radius-sm); }
+    .ep-mock-badge { width:36px; height:36px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:0.85rem; font-weight:800; flex-shrink:0; }
+    .ep-mock-info { flex:1; }
+    .ep-mock-info h4 { margin:0; font-size:0.88rem; }
+    .ep-mock-info span { color:var(--text-soft); font-size:0.76rem; }
+    .ep-mock-score { font-weight:800; font-size:0.9rem; }
+
+    .ep-tips { margin-top:1.4rem; background:linear-gradient(135deg,#7a5af5,#5b3fd6); border-radius:var(--radius-lg); padding:1.3rem 1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+    .ep-tips h3 { color:#fff; margin:0 0 0.2rem; font-size:1.05rem; }
+    .ep-tips p { color:rgba(255,255,255,0.75); margin:0; font-size:0.86rem; }
+    .ep-tips-btn { background:#fff; color:var(--primary); border:none; padding:0.6rem 1.1rem; border-radius:999px; font-weight:800; font-size:0.84rem; cursor:pointer; white-space:nowrap; }
+    .ep-tips-btn:hover { transform:translateY(-1px); box-shadow:0 8px 24px rgba(0,0,0,0.2); }
+
+    @media(max-width:992px){ .ep-hero{grid-template-columns:1fr;} .ep-exams{grid-template-columns:1fr 1fr;} .ep-two{grid-template-columns:1fr;} }
+    @media(max-width:600px){ .ep-exams{grid-template-columns:1fr;} .ep-hero-title{font-size:1.7rem;} }
+  </style>
+</head>
+<body>
+<div class="page">
+<!-- Navbar -->
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
+      <img src="logo.png" alt="EduVance" style="height: 40px; width: auto;">
+    </a>
+    <nav class="nav-links">
+      <a href="courses.html">Courses</a>
+      <a href="SkillTracker.html">SkillTracker</a>
+      <a href="skillvol.html">SkillVol</a>
+      <a href="skillclubs.html">SkillClubs</a>
+      <a href="skilltours.html">SkillTours</a>
+      <a href="monitoring.html">Monitoring Hub</a>
+      <a href="examprep.html">Exam Prep Hub</a>
+      <a href="careerai.html">Career AI</a>
+
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn">🔍</button>
+      <button class="icon-btn">🔔</button>
+      <a href="student-dashboard.html" title="Student Dashboard" class="avatar-link">
+        <img
+          src="./student.png"
+          alt="Student Avatar"
+          class="avatar-img"
+        />
+      </a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="ep-hero">
+    <div>
+      <div class="hero-badge"><span class="badge-dot"></span><span>Exam Prep Hub</span></div>
+      <h1 class="ep-hero-title">Get Ready for Your Exams</h1>
+      <p class="ep-hero-sub">Live and recorded courses, massive question banks, mock tests, and dedicated instructors — all in one place for Qiyas, STEP, IELTS, and achievement exams.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary">Start Studying</button>
+        <a class="btn btn-soft" href="courses.html">Browse All Courses</a>
+      </div>
+    </div>
+    <div class="ep-progress-card">
+      <h3>📈 Your Progress</h3>
+      <div class="ep-prog-item">
+        <div class="ep-prog-row"><span>Qiyas – Quantitative</span><span>40%</span></div>
+        <div class="ep-prog-bar"><div class="ep-prog-fill" style="width:40%;background:linear-gradient(90deg,#7a5af5,#4cb8ff);"></div></div>
+      </div>
+      <div class="ep-prog-item">
+        <div class="ep-prog-row"><span>Qiyas – Verbal</span><span>65%</span></div>
+        <div class="ep-prog-bar"><div class="ep-prog-fill" style="width:65%;background:linear-gradient(90deg,#39c46a,#4cb8ff);"></div></div>
+      </div>
+      <div class="ep-prog-item">
+        <div class="ep-prog-row"><span>STEP – Reading</span><span>30%</span></div>
+        <div class="ep-prog-bar"><div class="ep-prog-fill" style="width:30%;background:linear-gradient(90deg,#ffb400,#ff8c00);"></div></div>
+      </div>
+      <div class="ep-prog-item" style="margin-bottom:0;">
+        <div class="ep-prog-row"><span>IELTS – Writing</span><span>15%</span></div>
+        <div class="ep-prog-bar"><div class="ep-prog-fill" style="width:15%;background:linear-gradient(90deg,#e74c3c,#ff6b6b);"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Exam Categories -->
+  <div class="ep-exams">
+    <div class="ep-exam-card">
+      <div class="ep-exam-top" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe);">📊</div>
+      <div class="ep-exam-body">
+        <h3>Qiyas (القدرات)</h3>
+        <p>Comprehensive prep for the national aptitude test including quantitative and verbal sections.</p>
+        <div class="ep-exam-meta">
+          <span class="ep-pill ep-pill-purple">Quant</span>
+          <span class="ep-pill ep-pill-blue">Verbal</span>
+          <span class="ep-pill ep-pill-green">500+ Questions</span>
+        </div>
+        <div class="ep-exam-footer">
+          <span style="color:var(--text-soft);font-size:0.78rem;">3 Mock Tests Done</span>
+          <button class="ep-exam-btn">Continue</button>
+        </div>
+      </div>
+    </div>
+    <div class="ep-exam-card">
+      <div class="ep-exam-top" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe);">📝</div>
+      <div class="ep-exam-body">
+        <h3>STEP</h3>
+        <p>Prepare for the Saudi Test for English Proficiency with reading, writing, and listening modules.</p>
+        <div class="ep-exam-meta">
+          <span class="ep-pill ep-pill-blue">Reading</span>
+          <span class="ep-pill ep-pill-purple">Writing</span>
+          <span class="ep-pill ep-pill-green">300+ Questions</span>
+        </div>
+        <div class="ep-exam-footer">
+          <span style="color:var(--text-soft);font-size:0.78rem;">New Module Available</span>
+          <button class="ep-exam-btn">Start</button>
+        </div>
+      </div>
+    </div>
+    <div class="ep-exam-card">
+      <div class="ep-exam-top" style="background:linear-gradient(135deg,#dcfce7,#bbf7d0);">🌐</div>
+      <div class="ep-exam-body">
+        <h3>IELTS</h3>
+        <p>Full IELTS preparation — listening, reading, writing, and speaking — for international applications.</p>
+        <div class="ep-exam-meta">
+          <span class="ep-pill ep-pill-green">Listening</span>
+          <span class="ep-pill ep-pill-blue">Speaking</span>
+          <span class="ep-pill ep-pill-purple">Live Classes</span>
+        </div>
+        <div class="ep-exam-footer">
+          <span style="color:var(--text-soft);font-size:0.78rem;">Course starts soon</span>
+          <button class="ep-exam-btn">Enroll</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Courses + Mock Tests -->
+  <div class="ep-two">
+    <div class="ep-card">
+      <h3>📚 Active Courses</h3>
+      <div class="ep-course-list">
+        <div class="ep-course-item">
+          <div class="ep-course-icon" style="background:#ede9fe;">📐</div>
+          <div class="ep-course-info"><h4>Qiyas Quant Basics</h4><span>Geometry, Algebra, Data</span></div>
+          <div class="ep-course-progress"><strong>40%</strong></div>
+        </div>
+        <div class="ep-course-item">
+          <div class="ep-course-icon" style="background:#dbeafe;">📖</div>
+          <div class="ep-course-info"><h4>Qiyas Verbal Mastery</h4><span>Vocabulary, Comprehension</span></div>
+          <div class="ep-course-progress"><strong>65%</strong></div>
+        </div>
+        <div class="ep-course-item">
+          <div class="ep-course-icon" style="background:#dcfce7;">📝</div>
+          <div class="ep-course-info"><h4>STEP Reading Strategies</h4><span>New module available</span></div>
+          <div class="ep-course-progress"><strong>30%</strong></div>
+        </div>
+        <div class="ep-course-item">
+          <div class="ep-course-icon" style="background:#fef3c7;">✍️</div>
+          <div class="ep-course-info"><h4>IELTS Writing Workshop</h4><span>Task 1 & Task 2</span></div>
+          <div class="ep-course-progress"><strong>15%</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="ep-card">
+      <h3>🏋️ Mock Tests</h3>
+      <div class="ep-mock-list">
+        <div class="ep-mock-item">
+          <div class="ep-mock-badge" style="background:#ede9fe;color:var(--primary);">#1</div>
+          <div class="ep-mock-info"><h4>Qiyas Mock Test 1</h4><span>Completed • Jan 2026</span></div>
+          <div class="ep-mock-score" style="color:#16a34a;">72/100</div>
+        </div>
+        <div class="ep-mock-item">
+          <div class="ep-mock-badge" style="background:#ede9fe;color:var(--primary);">#2</div>
+          <div class="ep-mock-info"><h4>Qiyas Mock Test 2</h4><span>Completed • Jan 2026</span></div>
+          <div class="ep-mock-score" style="color:#16a34a;">75/100</div>
+        </div>
+        <div class="ep-mock-item">
+          <div class="ep-mock-badge" style="background:#ede9fe;color:var(--primary);">#3</div>
+          <div class="ep-mock-info"><h4>Qiyas Mock Test 3</h4><span>Completed • Feb 2026</span></div>
+          <div class="ep-mock-score" style="color:#16a34a;">78/100</div>
+        </div>
+        <div class="ep-mock-item">
+          <div class="ep-mock-badge" style="background:#f3f4f6;color:var(--text-soft);">#4</div>
+          <div class="ep-mock-info"><h4>Qiyas Mock Test 4</h4><span>Available now</span></div>
+          <div class="ep-mock-score" style="color:var(--text-soft);">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="ep-tips">
+    <div><h3>💡 Study Tips</h3><p>Your weakest area is <strong style="color:#fff;">Geometry</strong>. Complete the targeted mini-lessons to boost your Quant score by 8+ points.</p></div>
+    <button class="ep-tips-btn">Start Geometry Focus</button>
+  </div>
+
+</main>
+<footer class="footer"><div class="footer-inner container"><p>&copy; 2026 EduVance. All rights reserved.</p></div></footer>
+</div>
+
+
+<!-- ─── Slide-out Drawer Menu ─── -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <a href="index.html" class="drawer-logo">
+      <img src="logo.png" alt="EduVance" style="height: 32px; width: auto;">
+    </a>
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">&#x2715;</button>
+  </div>
+  <div class="drawer-profile">
+    <img src="./student.png" alt="Sara">
+    <div class="drawer-profile-info">
+      <h4>Sara Hassan</h4>
+      <span>Grade 10 &bull; Gifted Program</span>
+    </div>
+  </div>
+  <div class="drawer-nav">
+    <div class="drawer-section-label">Main</div>
+    <a href="index.html" id="drawer-home">
+      <span class="drawer-icon" style="background:#e0ecff;">&#x1F3E0;</span> Home
+    </a>
+    <a href="student-dashboard.html" id="drawer-dashboard">
+      <span class="drawer-icon" style="background:#f3ecff;">&#x1F4CC;</span> Dashboard
+    </a>
+    <div class="drawer-section-label">Hubs</div>
+    <a href="SkillTracker.html" id="drawer-skilltracker">
+      <span class="drawer-icon" style="background:#e0ecff;">&#x1F4CA;</span> SkillTracker
+    </a>
+    <a href="skillvol.html" id="drawer-skillvol">
+      <span class="drawer-icon" style="background:#e1fff0;">&#x1F91D;</span> SkillVol
+    </a>
+    <a href="skillclubs.html" id="drawer-skillclubs">
+      <span class="drawer-icon" style="background:#ffe5f2;">&#x1F465;</span> SkillClubs
+    </a>
+    <a href="skilltours.html" id="drawer-skilltours">
+      <span class="drawer-icon" style="background:#ffe7c2;">&#x1F68C;</span> SkillTours
+    </a>
+    <a href="monitoring.html" id="drawer-monitoring">
+      <span class="drawer-icon" style="background:#f3ecff;">&#x1F9ED;</span> Monitoring Hub
+    </a>
+    <div class="drawer-section-label">Learning</div>
+    <a href="courses.html" id="drawer-courses">
+      <span class="drawer-icon" style="background:#e0f2fe;">&#x1F393;</span> Courses
+    </a>
+    <a href="examprep.html" id="drawer-examprep">
+      <span class="drawer-icon" style="background:#fff9e6;">&#x1F4DD;</span> Exam Prep Hub
+    </a>
+    <a href="careerai.html" id="drawer-careerai">
+      <span class="drawer-icon" style="background:#e2fcd9;">&#x1F916;</span> Career AI
+    </a>
+    <div class="drawer-section-label">About</div>
+    <a href="about.html" id="drawer-about">
+      <span class="drawer-icon" style="background:#dbeafe;">&#x2139;&#xFE0F;</span> About EduVance
+    </a>
+  </div>
+  <div class="drawer-footer">
+    <p>&copy; 2026 EduVance. All rights reserved.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var burger  = document.getElementById('hamburgerBtn');
+  var overlay = document.getElementById('drawerOverlay');
+  var drawer  = document.getElementById('drawer');
+  function open(){
+    burger.classList.add('open');
+    overlay.classList.add('open');
+    drawer.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function close(){
+    burger.classList.remove('open');
+    overlay.classList.remove('open');
+    drawer.classList.remove('open');
+    document.body.style.overflow='';
+  }
+  burger.addEventListener('click',open);
+  overlay.addEventListener('click',close);
+  document.getElementById('drawerClose').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  var page=window.location.pathname.split('/').pop()||'index.html';
+  var map={
+    'index.html':'drawer-home',
+    'student-dashboard.html':'drawer-dashboard',
+    'SkillTracker.html':'drawer-skilltracker',
+    'skillvol.html':'drawer-skillvol',
+    'skillclubs.html':'drawer-skillclubs',
+    'skilltours.html':'drawer-skilltours',
+    'monitoring.html':'drawer-monitoring',
+    'courses.html':'drawer-courses',
+    'examprep.html':'drawer-examprep',
+    'careerai.html':'drawer-careerai',
+    'about.html':'drawer-about'
+  };
+  var id=map[page];
+  if(id){var el=document.getElementById(id);if(el)el.classList.add('active');}
+})();
+</script>
+
+</body>
+</html>

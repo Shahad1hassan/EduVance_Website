@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monitoring Hub | EduVance</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .mh-hero { margin-top:1rem; }
+    .mh-hero-title { margin:0.8rem 0 0.5rem; font-size:2rem; line-height:1.15; }
+    .mh-hero-sub { color:var(--text-soft); margin:0 0 1rem; font-size:0.95rem; line-height:1.6; max-width:680px; }
+
+    .mh-top-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; margin-top:1.4rem; }
+    .mh-top-card { background:#fff; border:1px solid var(--border-soft); border-radius:var(--radius-lg); box-shadow:var(--shadow-soft); padding:1.1rem; }
+    .mh-top-icon { width:44px; height:44px; border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:0.6rem; }
+    .mh-top-card h3 { margin:0 0 0.25rem; font-size:1rem; }
+    .mh-top-card > p { margin:0; color:var(--text-soft); font-size:0.82rem; line-height:1.5; }
+
+    .mh-two { display:grid; grid-template-columns:1.1fr 0.9fr; gap:1rem; margin-top:1rem; }
+
+    .mh-sec-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:0.8rem; flex-wrap:wrap; gap:0.5rem; }
+    .mh-sec-head h2 { margin:0; font-size:1.1rem; }
+
+    .mh-mentor-list { display:flex; flex-direction:column; gap:0.7rem; }
+    .mh-mentor { display:flex; gap:0.8rem; align-items:center; padding:0.75rem 0.85rem; background:#fff; border:1px solid var(--border-soft); border-radius:var(--radius-md); box-shadow:0 3px 10px rgba(15,23,42,0.04); transition:transform 0.15s; cursor:pointer; }
+    .mh-mentor:hover { transform:translateY(-1px); }
+    .mh-mentor-avatar { width:42px; height:42px; border-radius:50%; object-fit:cover; background:linear-gradient(135deg,#e0ecff,#ffe5f2); border:2px solid var(--border-soft); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:1.1rem; }
+    .mh-mentor-info { flex:1; min-width:0; }
+    .mh-mentor-info h4 { margin:0; font-size:0.9rem; }
+    .mh-mentor-info p { margin:0.15rem 0 0; color:var(--text-soft); font-size:0.78rem; }
+    .mh-mentor-action { background:var(--primary); color:#fff; border:none; padding:0.35rem 0.7rem; border-radius:999px; font-size:0.76rem; font-weight:700; cursor:pointer; white-space:nowrap; }
+    .mh-mentor-action:hover { background:#6c4de0; }
+
+    .mh-noms { display:flex; flex-direction:column; gap:0.7rem; }
+    .mh-nom-item { display:flex; gap:0.7rem; align-items:flex-start; padding:0.75rem 0.85rem; background:#fff; border:1px solid var(--border-soft); border-radius:var(--radius-md); box-shadow:0 3px 10px rgba(15,23,42,0.04); }
+    .mh-nom-icon { width:36px; height:36px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
+    .mh-nom-content { flex:1; min-width:0; }
+    .mh-nom-content h4 { margin:0; font-size:0.88rem; }
+    .mh-nom-content p { margin:0.15rem 0 0; color:var(--text-soft); font-size:0.78rem; }
+    .mh-nom-tag { display:inline-block; margin-top:0.35rem; padding:2px 8px; border-radius:999px; font-size:0.72rem; font-weight:700; }
+    .mh-nom-match { background:#dcfce7; color:#16a34a; }
+    .mh-nom-ready { background:#fef3c7; color:#b45309; }
+
+    .mh-competitions { margin-top:1.4rem; }
+    .mh-comp-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.9rem; }
+    .mh-comp-card { background:#fff; border:1px solid var(--border-soft); border-radius:var(--radius-md); padding:1rem; box-shadow:0 4px 12px rgba(15,23,42,0.04); transition:transform 0.15s; cursor:pointer; }
+    .mh-comp-card:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(15,23,42,0.08); }
+    .mh-comp-icon { width:38px; height:38px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; margin-bottom:0.5rem; }
+    .mh-comp-card h4 { margin:0 0 0.2rem; font-size:0.88rem; }
+    .mh-comp-card p { margin:0; color:var(--text-soft); font-size:0.78rem; line-height:1.45; }
+    .mh-comp-footer { display:flex; justify-content:space-between; align-items:center; margin-top:0.6rem; }
+    .mh-comp-pill { padding:2px 8px; border-radius:999px; font-size:0.72rem; font-weight:700; }
+    .mh-cp-deadline { background:#fce7f3; color:#be185d; }
+    .mh-cp-open { background:#dbeafe; color:#2563eb; }
+
+    @media(max-width:992px){ .mh-top-grid{grid-template-columns:1fr 1fr;} .mh-two{grid-template-columns:1fr;} .mh-comp-grid{grid-template-columns:1fr 1fr;} }
+    @media(max-width:600px){ .mh-top-grid{grid-template-columns:1fr;} .mh-comp-grid{grid-template-columns:1fr;} .mh-hero-title{font-size:1.7rem;} }
+  </style>
+</head>
+<body>
+<div class="page">
+<!-- Navbar -->
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
+      <img src="logo.png" alt="EduVance" style="height: 40px; width: auto;">
+    </a>
+    <nav class="nav-links">
+      <a href="courses.html">Courses</a>
+      <a href="SkillTracker.html">SkillTracker</a>
+      <a href="skillvol.html">SkillVol</a>
+      <a href="skillclubs.html">SkillClubs</a>
+      <a href="skilltours.html">SkillTours</a>
+      <a href="monitoring.html">Monitoring Hub</a>
+      <a href="examprep.html">Exam Prep Hub</a>
+      <a href="careerai.html">Career AI</a>
+
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn">🔍</button>
+      <button class="icon-btn">🔔</button>
+      <a href="student-dashboard.html" title="Student Dashboard" class="avatar-link">
+        <img
+          src="./student.png"
+          alt="Student Avatar"
+          class="avatar-img"
+        />
+      </a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="mh-hero">
+    <div class="hero-badge"><span class="badge-dot"></span><span>Monitoring Hub</span></div>
+    <h1 class="mh-hero-title">Mentorship, Nominations & Competitions</h1>
+    <p class="mh-hero-sub">Find expert mentors for competitions, get smart nominations based on your real profile, and track your path to global recognition.</p>
+    <div class="hero-actions">
+      <button class="btn btn-primary">Find a Mentor</button>
+      <a class="btn btn-soft" href="SkillTracker.html">View My Profile</a>
+    </div>
+  </section>
+
+  <!-- Top 3 Feature Cards -->
+  <div class="mh-top-grid">
+    <div class="mh-top-card">
+      <div class="mh-top-icon" style="background:#ede9fe;">🧭</div>
+      <h3>Mentorship Hub</h3>
+      <p>Connect with expert mentors who guide you step-by-step through competitions like ISEF, Olympiads, and national science fairs.</p>
+    </div>
+    <div class="mh-top-card">
+      <div class="mh-top-icon" style="background:#dcfce7;">🎯</div>
+      <h3>Smart Nominations</h3>
+      <p>AI-powered system that matches your real SkillTracker profile with the best competitions and events you qualify for.</p>
+    </div>
+    <div class="mh-top-card">
+      <div class="mh-top-icon" style="background:#dbeafe;">🏆</div>
+      <h3>Competition Tracker</h3>
+      <p>Track all competitions you're eligible for — deadlines, requirements, and your readiness score in one place.</p>
+    </div>
+  </div>
+
+  <!-- Mentors + Nominations side by side -->
+  <div class="mh-two" style="margin-top:1.4rem;">
+    <div>
+      <div class="mh-sec-head"><h2>Available Mentors</h2></div>
+      <div class="mh-mentor-list">
+        <div class="mh-mentor">
+          <div class="mh-mentor-avatar">👨‍🔬</div>
+          <div class="mh-mentor-info"><h4>Dr. Khalid Al-Rashidi</h4><p>ISEF Expert • Robotics & Engineering • 8 years mentoring</p></div>
+          <button class="mh-mentor-action">Book Session</button>
+        </div>
+        <div class="mh-mentor">
+          <div class="mh-mentor-avatar">👩‍💻</div>
+          <div class="mh-mentor-info"><h4>Eng. Nadia Al-Farsi</h4><p>AI & Machine Learning • National Science Olympiad Coach</p></div>
+          <button class="mh-mentor-action">Book Session</button>
+        </div>
+        <div class="mh-mentor">
+          <div class="mh-mentor-avatar">👨‍🏫</div>
+          <div class="mh-mentor-info"><h4>Prof. Omar Hassan</h4><p>Environmental Science • Research Paper Specialist</p></div>
+          <button class="mh-mentor-action">Book Session</button>
+        </div>
+        <div class="mh-mentor">
+          <div class="mh-mentor-avatar">👩‍🔬</div>
+          <div class="mh-mentor-info"><h4>Dr. Lina Al-Zahrani</h4><p>Biology & Genetics • International Competition Prep</p></div>
+          <button class="mh-mentor-action">Book Session</button>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="mh-sec-head"><h2>Smart Nominations</h2></div>
+      <div class="mh-noms">
+        <div class="mh-nom-item">
+          <div class="mh-nom-icon" style="background:#dcfce7;">🤖</div>
+          <div class="mh-nom-content">
+            <h4>National Robotics Championship</h4>
+            <p>Your Arduino project matches the requirements. Register by Mar 1.</p>
+            <span class="mh-nom-tag mh-nom-match">✓ Strong Match</span>
+          </div>
+        </div>
+        <div class="mh-nom-item">
+          <div class="mh-nom-icon" style="background:#dbeafe;">🌍</div>
+          <div class="mh-nom-content">
+            <h4>ISEF – Environmental Track</h4>
+            <p>Your biodiversity project is a good fit. Strengthen with 1 more data analysis.</p>
+            <span class="mh-nom-tag mh-nom-ready">⚡ Almost Ready</span>
+          </div>
+        </div>
+        <div class="mh-nom-item">
+          <div class="mh-nom-icon" style="background:#fef3c7;">🧪</div>
+          <div class="mh-nom-content">
+            <h4>Chemistry Olympiad – Regional</h4>
+            <p>Add 2 more chemistry projects to be eligible for nomination.</p>
+            <span class="mh-nom-tag mh-nom-ready">📝 Needs Development</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Competitions -->
+  <section class="mh-competitions">
+    <div class="mh-sec-head"><h2>Upcoming Competitions</h2></div>
+    <div class="mh-comp-grid">
+      <div class="mh-comp-card">
+        <div class="mh-comp-icon" style="background:#ede9fe;">🤖</div>
+        <h4>National Robotics Championship</h4>
+        <p>Showcase your robotics project at the national level with teams from across the kingdom.</p>
+        <div class="mh-comp-footer">
+          <span class="mh-comp-pill mh-cp-deadline">Mar 1 deadline</span>
+          <span class="mh-comp-pill mh-cp-open">Open</span>
+        </div>
+      </div>
+      <div class="mh-comp-card">
+        <div class="mh-comp-icon" style="background:#dcfce7;">🌍</div>
+        <h4>Intel ISEF – Saudi Selection</h4>
+        <p>The premier science fair — present your research project on the international stage.</p>
+        <div class="mh-comp-footer">
+          <span class="mh-comp-pill mh-cp-deadline">Apr 15 deadline</span>
+          <span class="mh-comp-pill mh-cp-open">Open</span>
+        </div>
+      </div>
+      <div class="mh-comp-card">
+        <div class="mh-comp-icon" style="background:#fef3c7;">🧪</div>
+        <h4>Regional Chemistry Olympiad</h4>
+        <p>Test your chemistry knowledge and problem-solving in a challenging competition format.</p>
+        <div class="mh-comp-footer">
+          <span class="mh-comp-pill mh-cp-deadline">May 20 deadline</span>
+          <span class="mh-comp-pill mh-cp-open">Open</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<footer class="footer"><div class="footer-inner container"><p>&copy; 2026 EduVance. All rights reserved.</p></div></footer>
+</div>
+
+
+<!-- ─── Slide-out Drawer Menu ─── -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <a href="index.html" class="drawer-logo">
+      <img src="logo.png" alt="EduVance" style="height: 32px; width: auto;">
+    </a>
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">&#x2715;</button>
+  </div>
+  <div class="drawer-profile">
+    <img src="./student.png" alt="Sara">
+    <div class="drawer-profile-info">
+      <h4>Sara Hassan</h4>
+      <span>Grade 10 &bull; Gifted Program</span>
+    </div>
+  </div>
+  <div class="drawer-nav">
+    <div class="drawer-section-label">Main</div>
+    <a href="index.html" id="drawer-home">
+      <span class="drawer-icon" style="background:#e0ecff;">&#x1F3E0;</span> Home
+    </a>
+    <a href="student-dashboard.html" id="drawer-dashboard">
+      <span class="drawer-icon" style="background:#f3ecff;">&#x1F4CC;</span> Dashboard
+    </a>
+    <div class="drawer-section-label">Hubs</div>
+    <a href="SkillTracker.html" id="drawer-skilltracker">
+      <span class="drawer-icon" style="background:#e0ecff;">&#x1F4CA;</span> SkillTracker
+    </a>
+    <a href="skillvol.html" id="drawer-skillvol">
+      <span class="drawer-icon" style="background:#e1fff0;">&#x1F91D;</span> SkillVol
+    </a>
+    <a href="skillclubs.html" id="drawer-skillclubs">
+      <span class="drawer-icon" style="background:#ffe5f2;">&#x1F465;</span> SkillClubs
+    </a>
+    <a href="skilltours.html" id="drawer-skilltours">
+      <span class="drawer-icon" style="background:#ffe7c2;">&#x1F68C;</span> SkillTours
+    </a>
+    <a href="monitoring.html" id="drawer-monitoring">
+      <span class="drawer-icon" style="background:#f3ecff;">&#x1F9ED;</span> Monitoring Hub
+    </a>
+    <div class="drawer-section-label">Learning</div>
+    <a href="courses.html" id="drawer-courses">
+      <span class="drawer-icon" style="background:#e0f2fe;">&#x1F393;</span> Courses
+    </a>
+    <a href="examprep.html" id="drawer-examprep">
+      <span class="drawer-icon" style="background:#fff9e6;">&#x1F4DD;</span> Exam Prep Hub
+    </a>
+    <a href="careerai.html" id="drawer-careerai">
+      <span class="drawer-icon" style="background:#e2fcd9;">&#x1F916;</span> Career AI
+    </a>
+    <div class="drawer-section-label">About</div>
+    <a href="about.html" id="drawer-about">
+      <span class="drawer-icon" style="background:#dbeafe;">&#x2139;&#xFE0F;</span> About EduVance
+    </a>
+  </div>
+  <div class="drawer-footer">
+    <p>&copy; 2026 EduVance. All rights reserved.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var burger  = document.getElementById('hamburgerBtn');
+  var overlay = document.getElementById('drawerOverlay');
+  var drawer  = document.getElementById('drawer');
+  function open(){
+    burger.classList.add('open');
+    overlay.classList.add('open');
+    drawer.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function close(){
+    burger.classList.remove('open');
+    overlay.classList.remove('open');
+    drawer.classList.remove('open');
+    document.body.style.overflow='';
+  }
+  burger.addEventListener('click',open);
+  overlay.addEventListener('click',close);
+  document.getElementById('drawerClose').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  var page=window.location.pathname.split('/').pop()||'index.html';
+  var map={
+    'index.html':'drawer-home',
+    'student-dashboard.html':'drawer-dashboard',
+    'SkillTracker.html':'drawer-skilltracker',
+    'skillvol.html':'drawer-skillvol',
+    'skillclubs.html':'drawer-skillclubs',
+    'skilltours.html':'drawer-skilltours',
+    'monitoring.html':'drawer-monitoring',
+    'courses.html':'drawer-courses',
+    'examprep.html':'drawer-examprep',
+    'careerai.html':'drawer-careerai',
+    'about.html':'drawer-about'
+  };
+  var id=map[page];
+  if(id){var el=document.getElementById(id);if(el)el.classList.add('active');}
+})();
+</script>
+
+</body>
+</html>

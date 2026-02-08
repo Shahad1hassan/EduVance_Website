@@ -2,27 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>EduVance – Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduVance – Smart Education Platform</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="page">
 
 <!-- Navbar -->
 <header class="navbar">
   <div class="container navbar-inner">
-    <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">EduVance</a>
+    <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
+      <img src="logo.png" alt="EduVance" style="height: 40px; width: auto;">
+    </a>
     <nav class="nav-links">
       <a href="courses.html">Courses</a>
-      <a href="skillTracker.html">SkillTracker</a>
-      <a href="skillVol.html">SkillVol</a>
-      <a href="skillClubs.html">SkillClubs</a>
-      <a href="skillTours.html">SkillTours</a>
+      <a href="SkillTracker.html">SkillTracker</a>
+      <a href="skillvol.html">SkillVol</a>
+      <a href="skillclubs.html">SkillClubs</a>
+      <a href="skilltours.html">SkillTours</a>
       <a href="monitoring.html">Monitoring Hub</a>
       <a href="examprep.html">Exam Prep Hub</a>
       <a href="careerai.html">Career AI</a>
-    </nav>
 
+    </nav>
     <div class="nav-right">
       <button class="icon-btn">🔍</button>
       <button class="icon-btn">🔔</button>
@@ -42,229 +45,317 @@
   </div>
 </header>
 
-  <main class="container">
 
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-left">
-    <div class="hero-badge">
-      <span class="badge-dot"></span>
-      <span>Powered by Skills • Clubs • Volunteering</span>
-    </div>
-
-    <h1 class="hero-title">
-      The Smartest Student Platform for Skills, Clubs, Volunteering & Exams.
-    </h1>
-
-    <p class="hero-subtitle">
-      EduVance helps students build a strong skill CV, track volunteering hours, manage school clubs,
-      prepare for exams, and monitor progress in one beautiful dashboard.
-    </p>
-
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="student-dashboard.html">Open Dashboard</a>
-      <a class="btn btn-soft" href="courses.html">Explore Courses</a>
-    </div>
-
-    <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-number">120+</div>
-        <div class="stat-label">Courses</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">50+</div>
-        <div class="stat-label">Clubs</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">10k+</div>
-        <div class="stat-label">Tracked Hours</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- RIGHT image -->
-  <div class="hero-right">
-    <img
-      src="./Nav.png"
-      alt="Student exploring exams and skills"
-      class="hero-image"
-      loading="lazy"
-    />
-  </div>
-
-      <div class="hero-right">
-        <div class="hero-card">
-          <div class="hero-card-top">
-            <div class="hero-card-icon">🎯</div>
-            <div>
-              <div class="hero-card-title">Student Dashboard</div>
-              <div class="hero-card-sub">Daily highlights & progress</div>
-            </div>
-          </div>
-
-          <div class="hero-progress">
-            <div class="progress-row">
-              <span>Weekly Goal</span>
-              <span>78%</span>
-            </div>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width:78%"></div>
-            </div>
-          </div>
-
-          <div class="hero-mini-cards">
-            <div class="mini-card">
-              <div class="mini-icon" style="background:#e0ecff;">📊</div>
-              <div>
-                <div class="mini-title">SkillTracker</div>
-                <div class="mini-sub">CV & certificates</div>
-              </div>
-            </div>
-
-            <div class="mini-card">
-              <div class="mini-icon" style="background:#e1fff0;">🤝</div>
-              <div>
-                <div class="mini-title">SkillVol</div>
-                <div class="mini-sub">Tracked hours</div>
-              </div>
-            </div>
-
-            <div class="mini-card">
-              <div class="mini-icon" style="background:#ffe5f2;">👥</div>
-              <div>
-                <div class="mini-title">SkillClubs</div>
-                <div class="mini-sub">Plans & leadership</div>
-              </div>
-            </div>
-
-            <div class="mini-card">
-              <div class="mini-icon" style="background:#fff9e6;">📝</div>
-              <div>
-                <div class="mini-title">Exam Prep</div>
-                <div class="mini-sub">STEP • Qiyas • IELTS</div>
-              </div>
-            </div>
-          </div>
-
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          Start Your <span class="highlight">Beautiful</span><br>
+          And <span class="highlight">Bright</span> Future
+        </h1>
+        <p class="hero-description">
+          There are many variations of passages of Lorem Ipsum available but the majority 
+          have suffered alteration in some form by injected humour randomised words which 
+          don't look even slightly believable.
+        </p>
+        <div class="hero-buttons">
+          <a href="student-dashboard.html" class="btn btn-primary">GET STARTED</a>
+          <a href="courses.html" class="btn btn-outline">LEARN MORE →</a>
         </div>
       </div>
-    </section>
+      <div class="hero-image">
+        <img src="Nav.png" alt="Students celebrating" />
+      </div>
+    </div>
 
-    <!-- EduVance Hubs -->
-    <section class="section">
-      <h2 class="section-title">EduVance Hubs</h2>
-      <p style="color:var(--text-soft); font-size:0.9rem; margin-bottom:1rem;">
-        Explore the main hubs that power the EduVance experience for talented and high-achieving students.
+    <!-- Quick Features -->
+    <div class="quick-features">
+      <div class="feature-card">
+        <div class="feature-icon" style="background: #e0ecff;">
+          <span class="icon-emoji">🎓</span>
+          <span class="feature-number">01</span>
+        </div>
+        <h3>Scholarship Facility</h3>
+        <p>It is a long established fact that a reader will be.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background: #e1fff0;">
+          <span class="icon-emoji">👨‍🏫</span>
+          <span class="feature-number">02</span>
+        </div>
+        <h3>Skilled Lecturers</h3>
+        <p>It is a long established fact that a reader will be.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background: #fff9e6;">
+          <span class="icon-emoji">📚</span>
+          <span class="feature-number">03</span>
+        </div>
+        <h3>Book Library Facility</h3>
+        <p>It is a long established fact that a reader will be.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background: #ffe5f2;">
+          <span class="icon-emoji">💰</span>
+          <span class="feature-number">04</span>
+        </div>
+        <h3>Affordable Price</h3>
+        <p>It is a long established fact that a reader will be.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section">
+  <div class="container">
+    <div class="about-content">
+      <div class="about-images">
+        <div class="about-image-main">
+          <img src="BiodiversityCampaign.jpeg" alt="Student studying" />
+        </div>
+        <div class="about-images-grid">
+          <img src="ArduinoRobot.webp" alt="Students collaborating" />
+          <img src="student.png" alt="Student profile" />
+        </div>
+        <div class="experience-badge">
+          <div class="badge-icon">🎯</div>
+          <div class="badge-text">
+            <span class="badge-number">30 Years Of</span>
+            <span class="badge-label">Quality Service</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <span class="section-label">ABOUT US</span>
+        <h2 class="section-title">
+          Our Edukation System <span class="highlight">Inspires</span> You More.
+        </h2>
+        <p class="section-description">
+          There are many variations of passages available but the majority have 
+          suffered alteration in some form by injected humour randomised words which 
+          don't look even slightly believable. If you are going to use passage.
+        </p>
+
+        <div class="services-list">
+          <div class="service-item">
+            <div class="service-icon">📊</div>
+            <div class="service-content">
+              <h4>Education Services</h4>
+              <p>It is long established fact that a reader will be distracted by the content 
+              of a page when looking at its reader for long words layout.</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <div class="service-icon">🌍</div>
+            <div class="service-content">
+              <h4>International Hubs</h4>
+              <p>It is long established fact that a reader will be distracted by the content.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-quote">
+          <div class="quote-mark">"</div>
+          <p>
+            It is a long established fact that a reader will be distracted by the content 
+            of a page when looking at its reader for long words layout.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section">
+  <div class="stats-overlay"></div>
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">🎓</div>
+        <div class="stat-number">500</div>
+        <div class="stat-label">+ Total Courses</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">👥</div>
+        <div class="stat-number">1900</div>
+        <div class="stat-label">+ Our Students</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">👨‍🏫</div>
+        <div class="stat-number">750</div>
+        <div class="stat-label">+ Skilled Lecturers</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🏆</div>
+        <div class="stat-number">30</div>
+        <div class="stat-label">+ Win Awards</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Courses Section -->
+<section class="courses-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">OUR COURSES</span>
+      <h2 class="section-title">Let's Check Our <span class="highlight">Courses</span></h2>
+      <p class="section-description">
+        It is a long established fact that a reader will be distracted by the readable 
+        content of a page when looking at its layout.
       </p>
+    </div>
 
-      <div class="hub-grid">
-        <a href="SkillTracker.html" class="hub-card">
-          <div class="hub-icon" style="background:#e0ecff;">📊</div>
-          <h3>SkillTracker</h3>
-          <p>Your skill CV: projects, volunteering, awards, certifications, and clubs all in one place.</p>
-        </a>
-
-        <a href="skillvol.html" class="hub-card">
-          <div class="hub-icon" style="background:#e1fff0;">🤝</div>
-          <h3>SkillVol</h3>
-          <p>Volunteering activities directly linked to your lessons, with official tracked hours.</p>
-        </a>
-
-        <a href="skillclubs.html" class="hub-card">
-          <div class="hub-icon" style="background:#ffe5f2;">👥</div>
-          <h3>SkillClubs</h3>
-          <p>Create and join real school clubs with leadership tools, branding, and ready-made plans.</p>
-        </a>
-
-        <a href="skilltours.html" class="hub-card">
-          <div class="hub-icon" style="background:#ffe7c2;">🚌</div>
-          <h3>SkillTours</h3>
-          <p>Educational trips to real workplaces connected to your curriculum.</p>
-        </a>
-
-        <a href="monitoring.html" class="hub-card">
-          <div class="hub-icon" style="background:#f3ecff;">🧭</div>
-          <h3>Monitoring Hub</h3>
-          <p>Mentorship, smart nomination, and teacher tracking of student progress.</p>
-        </a>
-
-        <a href="examprep.html" class="hub-card">
-          <div class="hub-icon" style="background:#fff9e6;">📝</div>
-          <h3>Exam Prep Hub</h3>
-          <p>Live and recorded courses for Qiyas, STEP, IELTS, and achievement exams.</p>
-        </a>
-
-        <a href="courses.html" class="hub-card">
-          <div class="hub-icon" style="background:#e0f2fe;">🎓</div>
-          <h3>Courses</h3>
-          <p>Browse all EduVance courses and learning tracks in one place.</p>
-        </a>
-
-        <a href="careerai.html" class="hub-card">
-          <div class="hub-icon" style="background:#e2fcd9;">🤖</div>
-          <h3>Career AI</h3>
-          <p>AI-powered recommendations for majors, scholarships, and skills to develop.</p>
-        </a>
-
-        <a href="student-dashboard.html" class="hub-card">
-          <div class="hub-icon" style="background:#d9e8ff;">📌</div>
-          <h3>Student Dashboard</h3>
-          <p>Your full dashboard: daily highlights, progress, and actions in one place.</p>
-        </a>
-      </div>
-    </section>
-
-    <!-- Highlights + News -->
-    <section class="section">
-      <div class="two-column">
-        <div>
-          <h2 class="section-title">Today’s Highlight</h2>
-          <div class="highlight-card">
-            <h3>Biodiversity &amp; Ecosystems 🌱</h3>
-            <p>Turn today’s science lesson into a real community impact project with SkillVol and SkillTours.</p>
-            <button class="btn btn-primary">Start Today’s Project</button>
-          </div>
+    <div class="courses-grid">
+      <div class="course-card">
+        <div class="course-image">
+          <img src="ArduinoRobot.webp" alt="Arduino & Robotics" />
+          <span class="course-tag">Technology</span>
         </div>
-
-        <div>
-          <h2 class="section-title">Latest News</h2>
-          <div class="news-list">
-            <div class="news-card">
-              <h4>National ISEF Track</h4>
-              <p>Mentorship Hub now supports ISEF-style projects with expert supervisors.</p>
-              <a href="#">Read more</a>
+        <div class="course-content">
+          <div class="course-meta">
+            <span class="course-level">⭐ Advanced</span>
+            <span class="course-students">👥 120 Students</span>
+          </div>
+          <h3>Arduino & Robotics Programming</h3>
+          <p>Learn the fundamentals of robotics and programming using Arduino microcontrollers.</p>
+          <div class="course-footer">
+            <div class="course-instructor">
+              <img src="student.png" alt="Instructor" />
+              <span>Dr. Ahmed Khan</span>
             </div>
-            <div class="news-card">
-              <h4>New Exam Prep Modules</h4>
-              <p>Fresh question banks for Qiyas and STEP in the Exam Prep Hub.</p>
-              <a href="#">Read more</a>
-            </div>
-            <div class="news-card">
-              <h4>Career AI Update</h4>
-              <p>Career AI now recommends scholarships based on your SkillTracker profile.</p>
-              <a href="#">Read more</a>
+            <div class="course-price">
+              <span class="old-price">$500</span>
+              <span class="new-price">$399</span>
             </div>
           </div>
         </div>
       </div>
-    </section>
 
-  </main>
+      <div class="course-card">
+        <div class="course-image">
+          <img src="BiodiversityCampaign.jpeg" alt="Environmental Science" />
+          <span class="course-tag">Science</span>
+        </div>
+        <div class="course-content">
+          <div class="course-meta">
+            <span class="course-level">⭐ Beginner</span>
+            <span class="course-students">👥 200 Students</span>
+          </div>
+          <h3>Biodiversity & Ecosystems</h3>
+          <p>Understanding ecological systems and biodiversity conservation for a sustainable future.</p>
+          <div class="course-footer">
+            <div class="course-instructor">
+              <img src="student.png" alt="Instructor" />
+              <span>Prof. Sarah Wilson</span>
+            </div>
+            <div class="course-price">
+              <span class="old-price">$450</span>
+              <span class="new-price">$349</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-inner container">
+      <div class="course-card">
+        <div class="course-image">
+          <img src="Nav.png" alt="Study Skills" />
+          <span class="course-tag">Skills</span>
+        </div>
+        <div class="course-content">
+          <div class="course-meta">
+            <span class="course-level">⭐ Intermediate</span>
+            <span class="course-students">👥 350 Students</span>
+          </div>
+          <h3>Effective Study Skills</h3>
+          <p>Develop essential study skills and achieve academic excellence with proven techniques.</p>
+          <div class="course-footer">
+            <div class="course-instructor">
+              <img src="student.png" alt="Instructor" />
+              <span>Ms. Sara Hassan</span>
+            </div>
+            <div class="course-price">
+              <span class="old-price">$300</span>
+              <span class="new-price">$249</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="courses-cta">
+      <a href="courses.html" class="btn btn-primary">EXPLORE ALL COURSES</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <h2>Ready To Start Your Learning Journey?</h2>
+      <p>Join thousands of students achieving their educational goals with us</p>
+      <a href="student-profile.html" class="btn btn-cta">GET STARTED FOR FREE</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <img src="logo.png" alt="EduVance" class="footer-logo">
+        <p>A comprehensive educational platform helping students achieve their academic and professional goals</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Twitter">t</a>
+          <a href="#" aria-label="Instagram">i</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="student-dashboard.html">Dashboard</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="SkillTracker.html">SkillTracker</a></li>
+          <li><a href="skillclubs.html">SkillClubs</a></li>
+          <li><a href="examprep.html">Exam Prep</a></li>
+          <li><a href="careerai.html">Career AI</a></li>
+        </ul>
+      </div>
+      
+      
+    </div>
+    
+    <div class="footer-bottom">
       <p>&copy; 2026 EduVance. All rights reserved.</p>
     </div>
-  </footer>
-
-
+  </div>
+</footer>
 
 <!-- ─── Slide-out Drawer Menu ─── -->
 <div class="drawer-overlay" id="drawerOverlay"></div>
 <div class="drawer" id="drawer">
   <div class="drawer-head">
-    <a href="index.html" class="drawer-logo">EduVance</a>
+    <a href="index.html" class="drawer-logo">
+      <img src="logo2.png" alt="EduVance" style="height: 32px; width: auto;">
+    </a>
     <button class="drawer-close" id="drawerClose" aria-label="Close menu">&#x2715;</button>
   </div>
   <div class="drawer-profile">

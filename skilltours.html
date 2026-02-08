@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillTours | EduVance</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .st-hero { display:grid; grid-template-columns:1.2fr 0.8fr; gap:1.4rem; align-items:start; margin-top:1rem; }
+    .st-hero-title { margin:0.8rem 0 0.5rem; font-size:2rem; line-height:1.15; }
+    .st-hero-sub { color:var(--text-soft); margin:0 0 1rem; font-size:0.95rem; line-height:1.6; }
+
+    .st-info-card { background:#fff; border:1px solid var(--border-soft); border-radius:var(--radius-lg); box-shadow:var(--shadow-soft); padding:1.3rem; }
+    .st-info-card h3 { margin:0 0 0.6rem; font-size:1rem; }
+    .st-info-row { display:flex; justify-content:space-between; padding:0.5rem 0; border-bottom:1px solid #f0f2f5; font-size:0.88rem; }
+    .st-info-row:last-child { border-bottom:none; }
+    .st-info-row strong { font-weight:700; }
+
+    .st-sec-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem; flex-wrap:wrap; gap:0.6rem; }
+    .st-sec-head h2 { margin:0; font-size:1.15rem; }
+    .st-sec-head p { margin:0; color:var(--text-soft); font-size:0.85rem; width:100%; }
+
+    .st-tours-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    .st-tour-card { background:#fff; border:1px solid var(--border-soft); border-radius:var(--radius-lg); box-shadow:var(--shadow-soft); overflow:hidden; transition:transform 0.2s,box-shadow 0.2s; }
+    .st-tour-card:hover { transform:translateY(-3px); box-shadow:0 16px 40px rgba(15,23,42,0.11); }
+    .st-tour-top { height:140px; display:flex; align-items:center; justify-content:center; font-size:2.6rem; position:relative; }
+    .st-tour-badge { position:absolute; top:10px; right:10px; background:rgba(255,255,255,0.88); border-radius:999px; padding:3px 10px; font-size:0.74rem; font-weight:700; }
+    .st-tour-badge.done { color:#16a34a; }
+    .st-tour-badge.open { color:#b45309; }
+    .st-tour-body { padding:1rem 1.1rem 1.1rem; }
+    .st-tour-body h3 { margin:0 0 0.25rem; font-size:0.97rem; }
+    .st-tour-body > p { margin:0; color:var(--text-soft); font-size:0.82rem; line-height:1.5; }
+    .st-tour-meta { display:flex; gap:0.6rem; margin-top:0.6rem; flex-wrap:wrap; }
+    .st-tour-pill { padding:3px 9px; border-radius:999px; font-size:0.74rem; font-weight:700; }
+    .st-tp-lesson { background:#e0f2fe; color:#0369a1; }
+    .st-tp-date  { background:#f3f4f6; color:var(--text-soft); border:1px solid #e5e7eb; }
+    .st-tour-footer { display:flex; justify-content:space-between; align-items:center; margin-top:0.7rem; }
+    .st-tour-btn { background:var(--primary); color:#fff; border:none; padding:0.4rem 0.9rem; border-radius:999px; font-size:0.8rem; font-weight:700; cursor:pointer; transition:background 0.15s; }
+    .st-tour-btn:hover { background:#6c4de0; }
+    .st-tour-btn.done-btn { background:#dcfce7; color:#16a34a; cursor:default; }
+
+    .st-how { margin-top:1.6rem; }
+    .st-how-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.9rem; }
+    .st-how-card { background:#fff; border:1px solid var(--border-soft); border-radius:var(--radius-md); padding:1rem; box-shadow:0 4px 12px rgba(15,23,42,0.04); text-align:center; }
+    .st-how-step { width:28px; height:28px; border-radius:999px; background:var(--primary-soft); color:var(--primary); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.85rem; margin:0 auto 0.5rem; }
+    .st-how-card h4 { margin:0 0 0.2rem; font-size:0.9rem; }
+    .st-how-card p { margin:0; color:var(--text-soft); font-size:0.8rem; line-height:1.45; }
+
+    @media(max-width:992px){ .st-hero{grid-template-columns:1fr;} .st-tours-grid{grid-template-columns:1fr;} .st-how-grid{grid-template-columns:1fr 1fr;} }
+    @media(max-width:600px){ .st-how-grid{grid-template-columns:1fr;} .st-hero-title{font-size:1.7rem;} }
+  </style>
+</head>
+<body>
+<div class="page">
+<!-- Navbar -->
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
+      <img src="logo.png" alt="EduVance" style="height: 40px; width: auto;">
+    </a>
+    <nav class="nav-links">
+      <a href="courses.html">Courses</a>
+      <a href="SkillTracker.html">SkillTracker</a>
+      <a href="skillvol.html">SkillVol</a>
+      <a href="skillclubs.html">SkillClubs</a>
+      <a href="skilltours.html">SkillTours</a>
+      <a href="monitoring.html">Monitoring Hub</a>
+      <a href="examprep.html">Exam Prep Hub</a>
+      <a href="careerai.html">Career AI</a>
+
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn">🔍</button>
+      <button class="icon-btn">🔔</button>
+      <a href="student-dashboard.html" title="Student Dashboard" class="avatar-link">
+        <img
+          src="./student.png"
+          alt="Student Avatar"
+          class="avatar-img"
+        />
+      </a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="st-hero">
+    <div>
+      <div class="hero-badge"><span class="badge-dot"></span><span>SkillTours</span></div>
+      <h1 class="st-hero-title">Educational Tours & Visits</h1>
+      <p class="st-hero-sub">Connect your lessons to the real world through guided visits to labs, companies, and government facilities. Every tour is linked to your curriculum and adds to your SkillTracker.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary">Request a Tour</button>
+        <a class="btn btn-soft" href="SkillTracker.html">View in SkillTracker</a>
+      </div>
+    </div>
+    <div class="st-info-card">
+      <h3>📋 Tour Summary</h3>
+      <div class="st-info-row"><span>Total Tours</span><strong>4</strong></div>
+      <div class="st-info-row"><span>Completed</span><strong style="color:#16a34a;">2 ✓</strong></div>
+      <div class="st-info-row"><span>Upcoming</span><strong style="color:#b45309;">1</strong></div>
+      <div class="st-info-row"><span>Pending Approval</span><strong style="color:#7a5af5;">1</strong></div>
+    </div>
+  </section>
+
+  <!-- Tours -->
+  <section style="margin-top:1.6rem;">
+    <div class="st-sec-head">
+      <div><h2>Your Tours</h2><p>All tours are approved and coordinated through the platform between your school and the host facility.</p></div>
+    </div>
+    <div class="st-tours-grid">
+      <div class="st-tour-card">
+        <div class="st-tour-top" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe);">🔬
+          <span class="st-tour-badge done">✓ Completed</span>
+        </div>
+        <div class="st-tour-body">
+          <h3>Biology Lab – University of Riyadh</h3>
+          <p>Visited the university biology lab to observe advanced microscopy and cell culture techniques connected to our Cells unit.</p>
+          <div class="st-tour-meta">
+            <span class="st-tour-pill st-tp-lesson">📚 Biology – Cell Structure</span>
+            <span class="st-tour-pill st-tp-date">📅 Nov 2025</span>
+          </div>
+          <div class="st-tour-footer">
+            <span style="color:var(--text-soft);font-size:0.78rem;">👥 25 students</span>
+            <button class="st-tour-btn done-btn">Completed ✓</button>
+          </div>
+        </div>
+      </div>
+      <div class="st-tour-card">
+        <div class="st-tour-top" style="background:linear-gradient(135deg,#fef3c7,#fde68a);">💧
+          <span class="st-tour-badge done">✓ Completed</span>
+        </div>
+        <div class="st-tour-body">
+          <h3>Water Desalination Plant</h3>
+          <p>Toured a local desalination facility to understand reverse osmosis and water purification processes tied to the Chemistry lesson.</p>
+          <div class="st-tour-meta">
+            <span class="st-tour-pill st-tp-lesson">📚 Chemistry – Solutions</span>
+            <span class="st-tour-pill st-tp-date">📅 Dec 2025</span>
+          </div>
+          <div class="st-tour-footer">
+            <span style="color:var(--text-soft);font-size:0.78rem;">👥 20 students</span>
+            <button class="st-tour-btn done-btn">Completed ✓</button>
+          </div>
+        </div>
+      </div>
+      <div class="st-tour-card">
+        <div class="st-tour-top" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe);">🏭
+          <span class="st-tour-badge open">⏳ Upcoming</span>
+        </div>
+        <div class="st-tour-body">
+          <h3>Tech Company – SDAIA</h3>
+          <p>Visit Saudi Data and AI Authority to learn about national AI strategy and see real AI systems in action.</p>
+          <div class="st-tour-meta">
+            <span class="st-tour-pill st-tp-lesson">📚 Computer Science – AI</span>
+            <span class="st-tour-pill st-tp-date">📅 Feb 15, 2026</span>
+          </div>
+          <div class="st-tour-footer">
+            <span style="color:var(--text-soft);font-size:0.78rem;">👥 18 students (confirmed)</span>
+            <button class="st-tour-btn">View Details</button>
+          </div>
+        </div>
+      </div>
+      <div class="st-tour-card">
+        <div class="st-tour-top" style="background:linear-gradient(135deg,#dcfce7,#bbf7d0);">🌱
+          <span class="st-tour-badge open">⏳ Pending</span>
+        </div>
+        <div class="st-tour-body">
+          <h3>Ministry of Environment</h3>
+          <p>Planned visit to learn about national environmental policies and sustainability programs linked to the Environmental Science unit.</p>
+          <div class="st-tour-meta">
+            <span class="st-tour-pill st-tp-lesson">📚 Env. Science – Policy</span>
+            <span class="st-tour-pill st-tp-date">📅 Mar 2026 (est.)</span>
+          </div>
+          <div class="st-tour-footer">
+            <span style="color:var(--text-soft);font-size:0.78rem;">🔄 Awaiting approval</span>
+            <button class="st-tour-btn">Track Request</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="st-how">
+    <div class="st-sec-head"><div><h2>How SkillTours Works</h2><p>A simple, streamlined process from request to visit.</p></div></div>
+    <div class="st-how-grid">
+      <div class="st-how-card">
+        <div class="st-how-step">1</div>
+        <h4>Request</h4>
+        <p>Your school submits a tour request linked to a specific lesson and facility through the platform.</p>
+      </div>
+      <div class="st-how-card">
+        <div class="st-how-step">2</div>
+        <h4>Approval</h4>
+        <p>The host facility reviews and accepts or declines the request. Dates and capacity are set automatically.</p>
+      </div>
+      <div class="st-how-card">
+        <div class="st-how-step">3</div>
+        <h4>Visit & Learn</h4>
+        <p>Students go on the tour, complete activities, and the experience is logged to their SkillTracker.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+<footer class="footer"><div class="footer-inner container"><p>&copy; 2026 EduVance. All rights reserved.</p></div></footer>
+</div>
+
+
+<!-- ─── Slide-out Drawer Menu ─── -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <a href="index.html" class="drawer-logo">
+      <img src="logo.png" alt="EduVance" style="height: 32px; width: auto;">
+    </a>
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">&#x2715;</button>
+  </div>
+  <div class="drawer-profile">
+    <img src="./student.png" alt="Sara">
+    <div class="drawer-profile-info">
+      <h4>Sara Hassan</h4>
+      <span>Grade 10 &bull; Gifted Program</span>
+    </div>
+  </div>
+  <div class="drawer-nav">
+    <div class="drawer-section-label">Main</div>
+    <a href="index.html" id="drawer-home">
+      <span class="drawer-icon" style="background:#e0ecff;">&#x1F3E0;</span> Home
+    </a>
+    <a href="student-dashboard.html" id="drawer-dashboard">
+      <span class="drawer-icon" style="background:#f3ecff;">&#x1F4CC;</span> Dashboard
+    </a>
+    <div class="drawer-section-label">Hubs</div>
+    <a href="SkillTracker.html" id="drawer-skilltracker">
+      <span class="drawer-icon" style="background:#e0ecff;">&#x1F4CA;</span> SkillTracker
+    </a>
+    <a href="skillvol.html" id="drawer-skillvol">
+      <span class="drawer-icon" style="background:#e1fff0;">&#x1F91D;</span> SkillVol
+    </a>
+    <a href="skillclubs.html" id="drawer-skillclubs">
+      <span class="drawer-icon" style="background:#ffe5f2;">&#x1F465;</span> SkillClubs
+    </a>
+    <a href="skilltours.html" id="drawer-skilltours">
+      <span class="drawer-icon" style="background:#ffe7c2;">&#x1F68C;</span> SkillTours
+    </a>
+    <a href="monitoring.html" id="drawer-monitoring">
+      <span class="drawer-icon" style="background:#f3ecff;">&#x1F9ED;</span> Monitoring Hub
+    </a>
+    <div class="drawer-section-label">Learning</div>
+    <a href="courses.html" id="drawer-courses">
+      <span class="drawer-icon" style="background:#e0f2fe;">&#x1F393;</span> Courses
+    </a>
+    <a href="examprep.html" id="drawer-examprep">
+      <span class="drawer-icon" style="background:#fff9e6;">&#x1F4DD;</span> Exam Prep Hub
+    </a>
+    <a href="careerai.html" id="drawer-careerai">
+      <span class="drawer-icon" style="background:#e2fcd9;">&#x1F916;</span> Career AI
+    </a>
+    <div class="drawer-section-label">About</div>
+    <a href="about.html" id="drawer-about">
+      <span class="drawer-icon" style="background:#dbeafe;">&#x2139;&#xFE0F;</span> About EduVance
+    </a>
+  </div>
+  <div class="drawer-footer">
+    <p>&copy; 2026 EduVance. All rights reserved.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var burger  = document.getElementById('hamburgerBtn');
+  var overlay = document.getElementById('drawerOverlay');
+  var drawer  = document.getElementById('drawer');
+  function open(){
+    burger.classList.add('open');
+    overlay.classList.add('open');
+    drawer.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function close(){
+    burger.classList.remove('open');
+    overlay.classList.remove('open');
+    drawer.classList.remove('open');
+    document.body.style.overflow='';
+  }
+  burger.addEventListener('click',open);
+  overlay.addEventListener('click',close);
+  document.getElementById('drawerClose').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  var page=window.location.pathname.split('/').pop()||'index.html';
+  var map={
+    'index.html':'drawer-home',
+    'student-dashboard.html':'drawer-dashboard',
+    'SkillTracker.html':'drawer-skilltracker',
+    'skillvol.html':'drawer-skillvol',
+    'skillclubs.html':'drawer-skillclubs',
+    'skilltours.html':'drawer-skilltours',
+    'monitoring.html':'drawer-monitoring',
+    'courses.html':'drawer-courses',
+    'examprep.html':'drawer-examprep',
+    'careerai.html':'drawer-careerai',
+    'about.html':'drawer-about'
+  };
+  var id=map[page];
+  if(id){var el=document.getElementById(id);if(el)el.classList.add('active');}
+})();
+</script>
+
+</body>
+</html>

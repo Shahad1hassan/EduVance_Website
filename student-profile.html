@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EduVance – Student Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .profile-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .profile-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 40px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .profile-avatar-large {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid white;
+      object-fit: cover;
+    }
+
+    .profile-header-info h1 {
+      margin: 0 0 8px 0;
+      font-size: 2rem;
+    }
+
+    .profile-header-info p {
+      margin: 4px 0;
+      opacity: 0.9;
+    }
+
+    .profile-section {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .profile-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid #f3f4f6;
+    }
+
+    .profile-section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1f2937;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      font-size: 1.25rem;
+    }
+
+    .profile-form-group {
+      margin-bottom: 20px;
+    }
+
+    .profile-form-label {
+      display: block;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .profile-form-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s;
+      background: #f9fafb;
+    }
+
+    .profile-form-input:focus {
+      outline: none;
+      border-color: #667eea;
+      background: white;
+    }
+
+    .profile-form-input:disabled {
+      background: #f3f4f6;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    .profile-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .edit-mode-controls {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-edit {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-edit:hover {
+      background: #5568d3;
+      transform: translateY(-2px);
+    }
+
+    .btn-save {
+      background: #10b981;
+      color: white;
+    }
+
+    .btn-save:hover {
+      background: #059669;
+    }
+
+    .btn-cancel {
+      background: #6b7280;
+      color: white;
+    }
+
+    .btn-cancel:hover {
+      background: #4b5563;
+    }
+
+    .privacy-notice {
+      background: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 16px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .privacy-notice strong {
+      color: #92400e;
+    }
+
+    .privacy-notice p {
+      margin: 8px 0 0 0;
+      color: #78350f;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .profile-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .profile-form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-header-info h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+<!-- Navbar -->
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
+      <img src="logo.png" alt="EduVance" style="height: 40px; width: auto;">
+    </a>
+    <nav class="nav-links">
+      <a href="courses.html">Courses</a>
+      <a href="SkillTracker.html">SkillTracker</a>
+      <a href="skillvol.html">SkillVol</a>
+      <a href="skillclubs.html">SkillClubs</a>
+      <a href="skilltours.html">SkillTours</a>
+      <a href="monitoring.html">Monitoring Hub</a>
+      <a href="examprep.html">Exam Prep Hub</a>
+      <a href="careerai.html">Career AI</a>
+
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn">🔍</button>
+      <button class="icon-btn">🔔</button>
+      <a href="student-dashboard.html" title="Student Dashboard" class="avatar-link">
+        <img
+          src="./student.png"
+          alt="Student Avatar"
+          class="avatar-img"
+        />
+      </a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <div class="profile-container">
+
+    <!-- Profile Header -->
+    <div class="profile-header">
+      <img src="./student.png" alt="Sara Hassan" class="profile-avatar-large" />
+      <div class="profile-header-info">
+        <h1>Sara Hassan</h1>
+        <p>📚 Grade 10 • Gifted Program</p>
+        <p>🏫 Riyadh Secondary School</p>
+        <p>📧 sara.hassan@student.edu.sa</p>
+      </div>
+    </div>
+
+    <!-- Personal Information -->
+    <div class="profile-section">
+      <div class="profile-section-header">
+        <h2 class="profile-section-title">
+          <span class="section-icon" style="background: #dbeafe;">👤</span>
+          Personal Information
+        </h2>
+        <div class="edit-mode-controls">
+          <button class="btn-edit" id="editPersonalBtn" onclick="toggleEdit('personal')">
+            ✏️ Edit
+          </button>
+        </div>
+      </div>
+
+      <form id="personalForm">
+        <div class="profile-form-row">
+          <div class="profile-form-group">
+            <label class="profile-form-label">Full Name</label>
+            <input type="text" class="profile-form-input" id="fullName" value="Sara Hassan" disabled />
+          </div>
+          <div class="profile-form-group">
+            <label class="profile-form-label">Date of Birth</label>
+            <input type="date" class="profile-form-input" id="dob" value="2008-05-15" disabled />
+          </div>
+        </div>
+
+        <div class="profile-form-row">
+          <div class="profile-form-group">
+            <label class="profile-form-label">Grade</label>
+            <input type="text" class="profile-form-input" id="grade" value="Grade 10" disabled />
+          </div>
+          <div class="profile-form-group">
+            <label class="profile-form-label">Program</label>
+            <input type="text" class="profile-form-input" id="program" value="Gifted Program" disabled />
+          </div>
+        </div>
+
+        <div class="profile-form-group">
+          <label class="profile-form-label">School</label>
+          <input type="text" class="profile-form-input" id="school" value="Riyadh Secondary School" disabled />
+        </div>
+
+        <div class="profile-form-row">
+          <div class="profile-form-group">
+            <label class="profile-form-label">Email</label>
+            <input type="email" class="profile-form-input" id="email" value="sara.hassan@student.edu.sa" disabled />
+          </div>
+          <div class="profile-form-group">
+            <label class="profile-form-label">Phone Number</label>
+            <input type="tel" class="profile-form-input" id="phone" value="+966 55 123 4567" disabled />
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Safety Profile -->
+    <div class="profile-section">
+      <div class="profile-section-header">
+        <h2 class="profile-section-title">
+          <span class="section-icon" style="background: #fee2e2;">🏥</span>
+          Student Safety Profile
+        </h2>
+        <div class="edit-mode-controls">
+          <button class="btn-edit" id="editSafetyBtn" onclick="toggleEdit('safety')">
+            ✏️ Edit
+          </button>
+        </div>
+      </div>
+
+      <form id="safetyForm">
+        <h3 style="color: #dc2626; margin-bottom: 16px; font-size: 1.1rem;">Medical Information</h3>
+        
+        <div class="profile-form-row">
+          <div class="profile-form-group">
+            <label class="profile-form-label">Blood Type</label>
+            <input type="text" class="profile-form-input" id="bloodType" value="A+" disabled />
+          </div>
+          <div class="profile-form-group">
+            <label class="profile-form-label">Allergies</label>
+            <input type="text" class="profile-form-input" id="allergies" value="Peanuts, Penicillin" disabled />
+          </div>
+        </div>
+
+        <div class="profile-form-group">
+          <label class="profile-form-label">Chronic Conditions</label>
+          <input type="text" class="profile-form-input" id="conditions" value="Asthma (mild)" disabled />
+        </div>
+
+        <div class="profile-form-group">
+          <label class="profile-form-label">Medications</label>
+          <input type="text" class="profile-form-input" id="medications" value="Salbutamol inhaler (as needed)" disabled />
+        </div>
+
+        <h3 style="color: #ea580c; margin: 24px 0 16px 0; font-size: 1.1rem;">Emergency Contacts</h3>
+
+        <div class="profile-form-row">
+          <div class="profile-form-group">
+            <label class="profile-form-label">Father's Name</label>
+            <input type="text" class="profile-form-input" id="fatherName" value="Ahmed Hassan" disabled />
+          </div>
+          <div class="profile-form-group">
+            <label class="profile-form-label">Father's Phone</label>
+            <input type="tel" class="profile-form-input" id="fatherPhone" value="+966 50 123 4567" disabled />
+          </div>
+        </div>
+
+        <div class="profile-form-row">
+          <div class="profile-form-group">
+            <label class="profile-form-label">Mother's Name</label>
+            <input type="text" class="profile-form-input" id="motherName" value="Fatima Ali" disabled />
+          </div>
+          <div class="profile-form-group">
+            <label class="profile-form-label">Mother's Phone</label>
+            <input type="tel" class="profile-form-input" id="motherPhone" value="+966 55 987 6543" disabled />
+          </div>
+        </div>
+
+        <div class="profile-form-group">
+          <label class="profile-form-label">Home Address</label>
+          <input type="text" class="profile-form-input" id="address" value="Al-Malqa District, Riyadh, Saudi Arabia" disabled />
+        </div>
+
+        <div class="profile-form-group">
+          <label class="profile-form-label">Emergency Notes</label>
+          <textarea class="profile-form-input" id="emergencyNotes" rows="3" disabled style="resize: vertical;">In case of asthma attack, use inhaler and call parents immediately. If severe, call 997.</textarea>
+        </div>
+      </form>
+
+      <div class="privacy-notice">
+        <strong>🔒 Privacy & Security Notice</strong>
+        <p>This safety information is encrypted and only accessible to authorized school administrators, supervisors, and tour coordinators. It will be used during field trips, outdoor activities, and emergency situations to ensure your safety and wellbeing.</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner container">
+    <p>&copy; 2026 EduVance. All rights reserved.</p>
+  </div>
+</footer>
+
+</div>
+
+<!-- Slide-out Drawer Menu -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <a href="index.html" class="drawer-logo">
+      <img src="logo.png" alt="EduVance" style="height: 32px; width: auto;">
+    </a>
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">&#x2715;</button>
+  </div>
+  <div class="drawer-profile">
+    <img src="./student.png" alt="Sara">
+    <div class="drawer-profile-info">
+      <h4>Sara Hassan</h4>
+      <span>Grade 10 &bull; Gifted Program</span>
+    </div>
+  </div>
+  <div class="drawer-nav">
+    <div class="drawer-section-label">Main</div>
+    <a href="index.html" id="drawer-home">
+      <span class="drawer-icon" style="background:#e0ecff;">&#x1F3E0;</span> Home
+    </a>
+    <a href="student-dashboard.html" id="drawer-dashboard">
+      <span class="drawer-icon" style="background:#f3ecff;">&#x1F4CC;</span> Dashboard
+    </a>
+    <a href="student-profile.html" id="drawer-profile">
+      <span class="drawer-icon" style="background:#dbeafe;">&#x1F464;</span> Profile
+    </a>
+    <div class="drawer-section-label">Hubs</div>
+    <a href="SkillTracker.html" id="drawer-skilltracker">
+      <span class="drawer-icon" style="background:#e0ecff;">&#x1F4CA;</span> SkillTracker
+    </a>
+    <a href="skillvol.html" id="drawer-skillvol">
+      <span class="drawer-icon" style="background:#e1fff0;">&#x1F91D;</span> SkillVol
+    </a>
+    <a href="skillclubs.html" id="drawer-skillclubs">
+      <span class="drawer-icon" style="background:#ffe5f2;">&#x1F465;</span> SkillClubs
+    </a>
+    <a href="skilltours.html" id="drawer-skilltours">
+      <span class="drawer-icon" style="background:#ffe7c2;">&#x1F68C;</span> SkillTours
+    </a>
+    <a href="monitoring.html" id="drawer-monitoring">
+      <span class="drawer-icon" style="background:#f3ecff;">&#x1F9ED;</span> Monitoring Hub
+    </a>
+    <div class="drawer-section-label">Learning</div>
+    <a href="courses.html" id="drawer-courses">
+      <span class="drawer-icon" style="background:#e0f2fe;">&#x1F393;</span> Courses
+    </a>
+    <a href="examprep.html" id="drawer-examprep">
+      <span class="drawer-icon" style="background:#fff9e6;">&#x1F4DD;</span> Exam Prep Hub
+    </a>
+    <a href="careerai.html" id="drawer-careerai">
+      <span class="drawer-icon" style="background:#e2fcd9;">&#x1F916;</span> Career AI
+    </a>
+    <div class="drawer-section-label">About</div>
+    <a href="about.html" id="drawer-about">
+      <span class="drawer-icon" style="background:#dbeafe;">&#x2139;&#xFE0F;</span> About EduVance
+    </a>
+  </div>
+  <div class="drawer-footer">
+    <p>&copy; 2026 EduVance. All rights reserved.</p>
+  </div>
+</div>
+
+<script>
+// Drawer menu functionality
+(function(){
+  var burger  = document.getElementById('hamburgerBtn');
+  var overlay = document.getElementById('drawerOverlay');
+  var drawer  = document.getElementById('drawer');
+  function open(){
+    burger.classList.add('open');
+    overlay.classList.add('open');
+    drawer.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function close(){
+    burger.classList.remove('open');
+    overlay.classList.remove('open');
+    drawer.classList.remove('open');
+    document.body.style.overflow='';
+  }
+  burger.addEventListener('click',open);
+  overlay.addEventListener('click',close);
+  document.getElementById('drawerClose').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  
+  // Highlight active page
+  var page=window.location.pathname.split('/').pop()||'index.html';
+  var map={
+    'index.html':'drawer-home',
+    'student-dashboard.html':'drawer-dashboard',
+    'student-profile.html':'drawer-profile',
+    'SkillTracker.html':'drawer-skilltracker',
+    'skillvol.html':'drawer-skillvol',
+    'skillclubs.html':'drawer-skillclubs',
+    'skilltours.html':'drawer-skilltours',
+    'monitoring.html':'drawer-monitoring',
+    'courses.html':'drawer-courses',
+    'examprep.html':'drawer-examprep',
+    'careerai.html':'drawer-careerai',
+    'about.html':'drawer-about'
+  };
+  var id=map[page];
+  if(id){var el=document.getElementById(id);if(el)el.classList.add('active');}
+})();
+
+// Edit mode functionality
+let editMode = {
+  personal: false,
+  safety: false
+};
+
+function toggleEdit(section) {
+  editMode[section] = !editMode[section];
+  
+  if (section === 'personal') {
+    const inputs = document.querySelectorAll('#personalForm input');
+    const btn = document.getElementById('editPersonalBtn');
+    
+    if (editMode[section]) {
+      inputs.forEach(input => input.disabled = false);
+      btn.innerHTML = '💾 Save';
+      btn.classList.add('btn-save');
+      btn.classList.remove('btn-edit');
+      
+      // Add cancel button
+      const cancelBtn = document.createElement('button');
+      cancelBtn.className = 'btn-edit btn-cancel';
+      cancelBtn.id = 'cancelPersonalBtn';
+      cancelBtn.innerHTML = '✖️ Cancel';
+      cancelBtn.onclick = () => cancelEdit('personal');
+      btn.parentElement.appendChild(cancelBtn);
+    } else {
+      inputs.forEach(input => input.disabled = true);
+      btn.innerHTML = '✏️ Edit';
+      btn.classList.remove('btn-save');
+      btn.classList.add('btn-edit');
+      
+      // Remove cancel button
+      const cancelBtn = document.getElementById('cancelPersonalBtn');
+      if (cancelBtn) cancelBtn.remove();
+      
+      // Show success message
+      showSuccessMessage('Personal information updated successfully!');
+    }
+  } else if (section === 'safety') {
+    const inputs = document.querySelectorAll('#safetyForm input, #safetyForm textarea');
+    const btn = document.getElementById('editSafetyBtn');
+    
+    if (editMode[section]) {
+      inputs.forEach(input => input.disabled = false);
+      btn.innerHTML = '💾 Save';
+      btn.classList.add('btn-save');
+      btn.classList.remove('btn-edit');
+      
+      // Add cancel button
+      const cancelBtn = document.createElement('button');
+      cancelBtn.className = 'btn-edit btn-cancel';
+      cancelBtn.id = 'cancelSafetyBtn';
+      cancelBtn.innerHTML = '✖️ Cancel';
+      cancelBtn.onclick = () => cancelEdit('safety');
+      btn.parentElement.appendChild(cancelBtn);
+    } else {
+      inputs.forEach(input => input.disabled = true);
+      btn.innerHTML = '✏️ Edit';
+      btn.classList.remove('btn-save');
+      btn.classList.add('btn-edit');
+      
+      // Remove cancel button
+      const cancelBtn = document.getElementById('cancelSafetyBtn');
+      if (cancelBtn) cancelBtn.remove();
+      
+      // Show success message
+      showSuccessMessage('Safety profile updated successfully!');
+    }
+  }
+}
+
+function cancelEdit(section) {
+  editMode[section] = false;
+  
+  if (section === 'personal') {
+    const inputs = document.querySelectorAll('#personalForm input');
+    inputs.forEach(input => input.disabled = true);
+    
+    const btn = document.getElementById('editPersonalBtn');
+    btn.innerHTML = '✏️ Edit';
+    btn.classList.remove('btn-save');
+    btn.classList.add('btn-edit');
+    
+    const cancelBtn = document.getElementById('cancelPersonalBtn');
+    if (cancelBtn) cancelBtn.remove();
+  } else if (section === 'safety') {
+    const inputs = document.querySelectorAll('#safetyForm input, #safetyForm textarea');
+    inputs.forEach(input => input.disabled = true);
+    
+    const btn = document.getElementById('editSafetyBtn');
+    btn.innerHTML = '✏️ Edit';
+    btn.classList.remove('btn-save');
+    btn.classList.add('btn-edit');
+    
+    const cancelBtn = document.getElementById('cancelSafetyBtn');
+    if (cancelBtn) cancelBtn.remove();
+  }
+}
+
+function showSuccessMessage(message) {
+  const successDiv = document.createElement('div');
+  successDiv.style.cssText = `
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background: #10b981;
+    color: white;
+    padding: 16px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 10000;
+    animation: slideIn 0.3s ease-out;
+  `;
+  successDiv.innerHTML = `✅ ${message}`;
+  document.body.appendChild(successDiv);
+  
+  setTimeout(() => {
+    successDiv.style.animation = 'slideOut 0.3s ease-out';
+    setTimeout(() => successDiv.remove(), 300);
+  }, 3000);
+}
+
+// Add CSS animations
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes slideIn {
+    from {
+      transform: translateX(400px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slideOut {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(400px);
+      opacity: 0;
+    }
+  }
+`;
+document.head.appendChild(style);
+</script>
+
+</body>
+</html>

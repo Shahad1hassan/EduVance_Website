@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillClubs | EduVance</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .sc-hero { display:grid; grid-template-columns:1.2fr 0.8fr; gap:1.4rem; align-items:start; margin-top:1rem; }
+    .sc-hero-title { margin:0.8rem 0 0.5rem; font-size:2rem; line-height:1.15; }
+    .sc-hero-sub { color:var(--text-soft); margin:0 0 1rem; font-size:0.95rem; line-height:1.6; }
+
+    .sc-my-clubs { background:#fff; border:1px solid var(--border-soft); border-radius:var(--radius-lg); box-shadow:var(--shadow-soft); padding:1.3rem; }
+    .sc-my-clubs h3 { margin:0 0 0.7rem; font-size:1rem; }
+    .sc-my-list { display:flex; flex-direction:column; gap:0.6rem; }
+    .sc-my-item { display:flex; gap:0.7rem; align-items:center; padding:0.65rem 0.75rem; background:#f7f8fc; border:1px solid var(--border-soft); border-radius:var(--radius-sm); }
+    .sc-my-icon { width:36px; height:36px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+    .sc-my-item-info h4 { margin:0; font-size:0.9rem; }
+    .sc-my-item-info span { color:var(--text-soft); font-size:0.78rem; }
+
+    .sc-sec-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem; flex-wrap:wrap; gap:0.6rem; }
+    .sc-sec-head h2 { margin:0; font-size:1.15rem; }
+    .sc-sec-head p { margin:0; color:var(--text-soft); font-size:0.85rem; width:100%; }
+    .sc-add-btn { display:inline-flex; align-items:center; gap:0.4rem; background:var(--primary); color:#fff; border:none; padding:0.55rem 1rem; border-radius:999px; font-weight:700; font-size:0.84rem; cursor:pointer; transition:transform 0.12s,box-shadow 0.12s; }
+    .sc-add-btn:hover { transform:translateY(-1px); box-shadow:0 8px 24px rgba(122,90,245,0.3); }
+
+    .sc-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; }
+    .sc-card { background:#fff; border:1px solid var(--border-soft); border-radius:var(--radius-lg); box-shadow:var(--shadow-soft); overflow:hidden; transition:transform 0.2s,box-shadow 0.2s; cursor:pointer; }
+    .sc-card:hover { transform:translateY(-3px); box-shadow:0 16px 40px rgba(15,23,42,0.11); }
+    .sc-card-top { height:100px; display:flex; align-items:center; justify-content:center; font-size:2.4rem; position:relative; }
+    .sc-card-body { padding:1rem; }
+    .sc-card-body h3 { margin:0 0 0.25rem; font-size:0.97rem; }
+    .sc-card-body > p { margin:0; color:var(--text-soft); font-size:0.82rem; line-height:1.5; }
+    .sc-card-meta { display:flex; gap:0.6rem; margin-top:0.6rem; flex-wrap:wrap; }
+    .sc-pill { padding:3px 9px; border-radius:999px; font-size:0.74rem; font-weight:700; }
+    .sc-pill-purple { background:#ede9fe; color:var(--primary); }
+    .sc-pill-green  { background:#dcfce7; color:#16a34a; }
+    .sc-pill-blue   { background:#dbeafe; color:#2563eb; }
+    .sc-pill-amber  { background:#fef3c7; color:#b45309; }
+    .sc-pill-pink   { background:#fce7f3; color:#be185d; }
+    .sc-card-footer { display:flex; justify-content:space-between; align-items:center; margin-top:0.8rem; }
+    .sc-join-btn { background:var(--primary); color:#fff; border:none; padding:0.4rem 0.9rem; border-radius:999px; font-size:0.8rem; font-weight:700; cursor:pointer; transition:background 0.15s; }
+    .sc-join-btn:hover { background:#6c4de0; }
+    .sc-members-count { color:var(--text-soft); font-size:0.78rem; font-weight:600; }
+
+    .sc-features { margin-top:1.6rem; }
+    .sc-feat-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.9rem; }
+    .sc-feat { background:#fff; border:1px solid var(--border-soft); border-radius:var(--radius-md); padding:1rem; box-shadow:0 4px 12px rgba(15,23,42,0.04); text-align:center; }
+    .sc-feat-icon { width:44px; height:44px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin:0 auto 0.5rem; }
+    .sc-feat h4 { margin:0 0 0.2rem; font-size:0.9rem; }
+    .sc-feat p { margin:0; color:var(--text-soft); font-size:0.8rem; line-height:1.45; }
+
+    @media(max-width:992px){ .sc-hero{grid-template-columns:1fr;} .sc-grid{grid-template-columns:1fr 1fr;} .sc-feat-grid{grid-template-columns:1fr 1fr;} }
+    @media(max-width:600px){ .sc-grid{grid-template-columns:1fr;} .sc-feat-grid{grid-template-columns:1fr;} .sc-hero-title{font-size:1.7rem;} }
+  </style>
+</head>
+<body>
+<div class="page">
+  
+<!-- Navbar -->
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
+      <img src="logo.png" alt="EduVance" style="height: 40px; width: auto;">
+    </a>
+    <nav class="nav-links">
+      <a href="courses.html">Courses</a>
+      <a href="SkillTracker.html">SkillTracker</a>
+      <a href="skillvol.html">SkillVol</a>
+      <a href="skillclubs.html">SkillClubs</a>
+      <a href="skilltours.html">SkillTours</a>
+      <a href="monitoring.html">Monitoring Hub</a>
+      <a href="examprep.html">Exam Prep Hub</a>
+      <a href="careerai.html">Career AI</a>
+
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn">🔍</button>
+      <button class="icon-btn">🔔</button>
+      <a href="student-dashboard.html" title="Student Dashboard" class="avatar-link">
+        <img
+          src="./student.png"
+          alt="Student Avatar"
+          class="avatar-img"
+        />
+      </a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="sc-hero">
+    <div>
+      <div class="hero-badge"><span class="badge-dot"></span><span>SkillClubs</span></div>
+      <h1 class="sc-hero-title">Create & Join School Clubs</h1>
+      <p class="sc-hero-sub">Found your own club, get leadership tools, branding support, and ready-made activity plans. Every club activity adds to your SkillTracker portfolio.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary">＋ Create a Club</button>
+        <a class="btn btn-soft" href="SkillTracker.html">View in SkillTracker</a>
+      </div>
+    </div>
+    <div class="sc-my-clubs">
+      <h3>🎖️ My Clubs</h3>
+      <div class="sc-my-list">
+        <div class="sc-my-item">
+          <div class="sc-my-icon" style="background:#ede9fe;">🤖</div>
+          <div class="sc-my-item-info"><h4>Robotics Club</h4><span>President • 12 members</span></div>
+        </div>
+        <div class="sc-my-item">
+          <div class="sc-my-icon" style="background:#dcfce7;">🌿</div>
+          <div class="sc-my-item-info"><h4>Green Environment Club</h4><span>Vice President • 8 members</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Explore Clubs -->
+  <section style="margin-top:1.6rem;">
+    <div class="sc-sec-head">
+      <div><h2>Explore All Clubs</h2><p>Browse available clubs and join ones that match your interests and goals.</p></div>
+      <button class="sc-add-btn">＋ Create Club</button>
+    </div>
+    <div class="sc-grid">
+      <div class="sc-card">
+        <div class="sc-card-top" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe);">🤖</div>
+        <div class="sc-card-body">
+          <h3>Robotics Club</h3>
+          <p>Build, program, and compete in local and national robotics competitions.</p>
+          <div class="sc-card-meta">
+            <span class="sc-pill sc-pill-purple">Engineering</span>
+            <span class="sc-pill sc-pill-blue">Programming</span>
+          </div>
+          <div class="sc-card-footer">
+            <span class="sc-members-count">👥 12 Members</span>
+            <span class="sc-pill sc-pill-green">✓ Joined</span>
+          </div>
+        </div>
+      </div>
+      <div class="sc-card">
+        <div class="sc-card-top" style="background:linear-gradient(135deg,#dcfce7,#bbf7d0);">🌿</div>
+        <div class="sc-card-body">
+          <h3>Green Environment Club</h3>
+          <p>Organize eco-friendly initiatives, recycling drives, and nature awareness events.</p>
+          <div class="sc-card-meta">
+            <span class="sc-pill sc-pill-green">Environment</span>
+            <span class="sc-pill sc-pill-amber">Leadership</span>
+          </div>
+          <div class="sc-card-footer">
+            <span class="sc-members-count">👥 8 Members</span>
+            <span class="sc-pill sc-pill-green">✓ Joined</span>
+          </div>
+        </div>
+      </div>
+      <div class="sc-card">
+        <div class="sc-card-top" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe);">🎨</div>
+        <div class="sc-card-body">
+          <h3>Art & Design Club</h3>
+          <p>Explore graphic design, illustration, and creative projects for school events.</p>
+          <div class="sc-card-meta">
+            <span class="sc-pill sc-pill-pink">Creative</span>
+            <span class="sc-pill sc-pill-blue">Design</span>
+          </div>
+          <div class="sc-card-footer">
+            <span class="sc-members-count">👥 15 Members</span>
+            <button class="sc-join-btn">Join</button>
+          </div>
+        </div>
+      </div>
+      <div class="sc-card">
+        <div class="sc-card-top" style="background:linear-gradient(135deg,#fef3c7,#fde68a);">💻</div>
+        <div class="sc-card-body">
+          <h3>Tech Innovation Club</h3>
+          <p>Develop apps, websites, and tech solutions for real-world problems.</p>
+          <div class="sc-card-meta">
+            <span class="sc-pill sc-pill-purple">Technology</span>
+            <span class="sc-pill sc-pill-amber">Innovation</span>
+          </div>
+          <div class="sc-card-footer">
+            <span class="sc-members-count">👥 10 Members</span>
+            <button class="sc-join-btn">Join</button>
+          </div>
+        </div>
+      </div>
+      <div class="sc-card">
+        <div class="sc-card-top" style="background:linear-gradient(135deg,#fce7f3,#fbcfe8);">🏃</div>
+        <div class="sc-card-body">
+          <h3>Sports & Fitness Club</h3>
+          <p>Weekly fitness sessions, sports tournaments, and wellness activities.</p>
+          <div class="sc-card-meta">
+            <span class="sc-pill sc-pill-pink">Health</span>
+            <span class="sc-pill sc-pill-green">Teamwork</span>
+          </div>
+          <div class="sc-card-footer">
+            <span class="sc-members-count">👥 20 Members</span>
+            <button class="sc-join-btn">Join</button>
+          </div>
+        </div>
+      </div>
+      <div class="sc-card">
+        <div class="sc-card-top" style="background:linear-gradient(135deg,#e0f2fe,#7dd3fc);">📚</div>
+        <div class="sc-card-body">
+          <h3>Reading & Literature Club</h3>
+          <p>Monthly book discussions, writing workshops, and school magazine contributions.</p>
+          <div class="sc-card-meta">
+            <span class="sc-pill sc-pill-blue">Communication</span>
+            <span class="sc-pill sc-pill-purple">Writing</span>
+          </div>
+          <div class="sc-card-footer">
+            <span class="sc-members-count">👥 9 Members</span>
+            <button class="sc-join-btn">Join</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Club Features -->
+  <section class="sc-features">
+    <div class="sc-sec-head"><div><h2>What SkillClubs Offers</h2><p>Everything you need to run a successful school club.</p></div></div>
+    <div class="sc-feat-grid">
+      <div class="sc-feat">
+        <div class="sc-feat-icon" style="background:#ede9fe;">🎯</div>
+        <h4>Leadership Tools</h4>
+        <p>Short courses on organizing, planning activities, and managing club members.</p>
+      </div>
+      <div class="sc-feat">
+        <div class="sc-feat-icon" style="background:#dcfce7;">🎨</div>
+        <h4>Club Branding</h4>
+        <p>Design your club's logo, poster, and promotional materials with built-in tools.</p>
+      </div>
+      <div class="sc-feat">
+        <div class="sc-feat-icon" style="background:#dbeafe;">📋</div>
+        <h4>Activity Plans</h4>
+        <p>Get ready-made activity templates and weekly schedules tailored to your club type.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+<footer class="footer"><div class="footer-inner container"><p>&copy; 2026 EduVance. All rights reserved.</p></div></footer>
+</div>
+
+
+<!-- ─── Slide-out Drawer Menu ─── -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <a href="index.html" class="drawer-logo">
+      <img src="logo.png" alt="EduVance" style="height: 32px; width: auto;">
+    </a>
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">&#x2715;</button>
+  </div>
+  <div class="drawer-profile">
+    <img src="./student.png" alt="Sara">
+    <div class="drawer-profile-info">
+      <h4>Sara Hassan</h4>
+      <span>Grade 10 &bull; Gifted Program</span>
+    </div>
+  </div>
+  <div class="drawer-nav">
+    <div class="drawer-section-label">Main</div>
+    <a href="index.html" id="drawer-home">
+      <span class="drawer-icon" style="background:#e0ecff;">&#x1F3E0;</span> Home
+    </a>
+    <a href="student-dashboard.html" id="drawer-dashboard">
+      <span class="drawer-icon" style="background:#f3ecff;">&#x1F4CC;</span> Dashboard
+    </a>
+    <div class="drawer-section-label">Hubs</div>
+    <a href="SkillTracker.html" id="drawer-skilltracker">
+      <span class="drawer-icon" style="background:#e0ecff;">&#x1F4CA;</span> SkillTracker
+    </a>
+    <a href="skillvol.html" id="drawer-skillvol">
+      <span class="drawer-icon" style="background:#e1fff0;">&#x1F91D;</span> SkillVol
+    </a>
+    <a href="skillclubs.html" id="drawer-skillclubs">
+      <span class="drawer-icon" style="background:#ffe5f2;">&#x1F465;</span> SkillClubs
+    </a>
+    <a href="skilltours.html" id="drawer-skilltours">
+      <span class="drawer-icon" style="background:#ffe7c2;">&#x1F68C;</span> SkillTours
+    </a>
+    <a href="monitoring.html" id="drawer-monitoring">
+      <span class="drawer-icon" style="background:#f3ecff;">&#x1F9ED;</span> Monitoring Hub
+    </a>
+    <div class="drawer-section-label">Learning</div>
+    <a href="courses.html" id="drawer-courses">
+      <span class="drawer-icon" style="background:#e0f2fe;">&#x1F393;</span> Courses
+    </a>
+    <a href="examprep.html" id="drawer-examprep">
+      <span class="drawer-icon" style="background:#fff9e6;">&#x1F4DD;</span> Exam Prep Hub
+    </a>
+    <a href="careerai.html" id="drawer-careerai">
+      <span class="drawer-icon" style="background:#e2fcd9;">&#x1F916;</span> Career AI
+    </a>
+    <div class="drawer-section-label">About</div>
+    <a href="about.html" id="drawer-about">
+      <span class="drawer-icon" style="background:#dbeafe;">&#x2139;&#xFE0F;</span> About EduVance
+    </a>
+  </div>
+  <div class="drawer-footer">
+    <p>&copy; 2026 EduVance. All rights reserved.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var burger  = document.getElementById('hamburgerBtn');
+  var overlay = document.getElementById('drawerOverlay');
+  var drawer  = document.getElementById('drawer');
+  function open(){
+    burger.classList.add('open');
+    overlay.classList.add('open');
+    drawer.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function close(){
+    burger.classList.remove('open');
+    overlay.classList.remove('open');
+    drawer.classList.remove('open');
+    document.body.style.overflow='';
+  }
+  burger.addEventListener('click',open);
+  overlay.addEventListener('click',close);
+  document.getElementById('drawerClose').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  var page=window.location.pathname.split('/').pop()||'index.html';
+  var map={
+    'index.html':'drawer-home',
+    'student-dashboard.html':'drawer-dashboard',
+    'SkillTracker.html':'drawer-skilltracker',
+    'skillvol.html':'drawer-skillvol',
+    'skillclubs.html':'drawer-skillclubs',
+    'skilltours.html':'drawer-skilltours',
+    'monitoring.html':'drawer-monitoring',
+    'courses.html':'drawer-courses',
+    'examprep.html':'drawer-examprep',
+    'careerai.html':'drawer-careerai',
+    'about.html':'drawer-about'
+  };
+  var id=map[page];
+  if(id){var el=document.getElementById(id);if(el)el.classList.add('active');}
+})();
+</script>
+
+</body>
+</html>

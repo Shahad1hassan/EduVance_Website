@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career AI | EduVance</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .ca-hero { margin-top:1rem; }
+    .ca-hero-title { margin:0.8rem 0 0.5rem; font-size:2rem; line-height:1.15; }
+    .ca-hero-sub { color:var(--text-soft); margin:0 0 1rem; font-size:0.95rem; line-height:1.6; max-width:680px; }
+
+    .ca-ai-banner {
+      margin-top:1.2rem;
+      background:linear-gradient(135deg,#7a5af5 0%,#5b3fd6 50%,#4cb8ff 100%);
+      border-radius:var(--radius-lg); padding:1.6rem 1.8rem;
+      display:flex; align-items:center; gap:1.4rem;
+    }
+    .ca-ai-icon { width:64px; height:64px; border-radius:20px; background:rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; font-size:2rem; flex-shrink:0; }
+    .ca-ai-text h3 { color:#fff; margin:0 0 0.3rem; font-size:1.15rem; }
+    .ca-ai-text p { color:rgba(255,255,255,0.75); margin:0; font-size:0.88rem; line-height:1.5; }
+
+    .ca-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; margin-top:1.4rem; }
+    .ca-card { background:#fff; border:1px solid var(--border-soft); border-radius:var(--radius-lg); box-shadow:var(--shadow-soft); padding:1.1rem; }
+    .ca-card-icon { width:44px; height:44px; border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:0.6rem; }
+    .ca-card h3 { margin:0 0 0.25rem; font-size:1rem; }
+    .ca-card > p { margin:0; color:var(--text-soft); font-size:0.82rem; line-height:1.5; }
+
+    .ca-two { display:grid; grid-template-columns:1.1fr 0.9fr; gap:1rem; margin-top:1.4rem; }
+    .ca-inner-card { background:#fff; border:1px solid var(--border-soft); border-radius:var(--radius-lg); box-shadow:var(--shadow-soft); padding:1.1rem; }
+    .ca-inner-card h3 { margin:0 0 0.7rem; font-size:1rem; }
+
+    .ca-major-list { display:flex; flex-direction:column; gap:0.6rem; }
+    .ca-major-item { display:flex; gap:0.75rem; align-items:center; padding:0.7rem 0.8rem; background:#f7f8fc; border:1px solid var(--border-soft); border-radius:var(--radius-sm); transition:background 0.15s; cursor:pointer; }
+    .ca-major-item:hover { background:#ede9fe; }
+    .ca-major-icon { width:38px; height:38px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+    .ca-major-info { flex:1; }
+    .ca-major-info h4 { margin:0; font-size:0.9rem; }
+    .ca-major-info span { color:var(--text-soft); font-size:0.78rem; }
+    .ca-match-badge { padding:2px 8px; border-radius:999px; font-size:0.72rem; font-weight:700; white-space:nowrap; }
+    .ca-match-high { background:#dcfce7; color:#16a34a; }
+    .ca-match-med  { background:#fef3c7; color:#b45309; }
+
+    .ca-scholarship-list { display:flex; flex-direction:column; gap:0.6rem; }
+    .ca-scholarship-item { padding:0.7rem 0.8rem; background:#f7f8fc; border:1px solid var(--border-soft); border-radius:var(--radius-sm); }
+    .ca-scholarship-item h4 { margin:0; font-size:0.88rem; }
+    .ca-scholarship-item p { margin:0.15rem 0 0; color:var(--text-soft); font-size:0.78rem; }
+    .ca-scholarship-footer { display:flex; justify-content:space-between; align-items:center; margin-top:0.4rem; }
+
+    .ca-skills { margin-top:1.4rem; }
+    .ca-skills-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; }
+    .ca-skill-item { display:flex; gap:0.7rem; align-items:center; padding:0.7rem 0.8rem; background:#fff; border:1px solid var(--border-soft); border-radius:var(--radius-sm); box-shadow:0 3px 10px rgba(15,23,42,0.04); }
+    .ca-skill-icon { width:34px; height:34px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:0.95rem; flex-shrink:0; }
+    .ca-skill-info { flex:1; }
+    .ca-skill-info h4 { margin:0; font-size:0.88rem; }
+    .ca-skill-info span { color:var(--text-soft); font-size:0.76rem; }
+    .ca-skill-status { font-size:0.72rem; font-weight:700; white-space:nowrap; }
+
+    @media(max-width:992px){ .ca-grid{grid-template-columns:1fr 1fr;} .ca-two{grid-template-columns:1fr;} .ca-skills-grid{grid-template-columns:1fr;} }
+    @media(max-width:600px){ .ca-grid{grid-template-columns:1fr;} .ca-hero-title{font-size:1.7rem;} .ca-ai-banner{flex-direction:column;text-align:center;} }
+  </style>
+</head>
+<body>
+<div class="page">
+<!-- Navbar -->
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
+      <img src="logo.png" alt="EduVance" style="height: 40px; width: auto;">
+    </a>
+    <nav class="nav-links">
+      <a href="courses.html">Courses</a>
+      <a href="SkillTracker.html">SkillTracker</a>
+      <a href="skillvol.html">SkillVol</a>
+      <a href="skillclubs.html">SkillClubs</a>
+      <a href="skilltours.html">SkillTours</a>
+      <a href="monitoring.html">Monitoring Hub</a>
+      <a href="examprep.html">Exam Prep Hub</a>
+      <a href="careerai.html">Career AI</a>
+
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn">🔍</button>
+      <button class="icon-btn">🔔</button>
+      <a href="student-dashboard.html" title="Student Dashboard" class="avatar-link">
+        <img
+          src="./student.png"
+          alt="Student Avatar"
+          class="avatar-img"
+        />
+      </a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<main class="container">
+
+  <section class="ca-hero">
+    <div class="hero-badge"><span class="badge-dot"></span><span>Career AI</span></div>
+    <h1 class="ca-hero-title">Your AI-Powered Career Guide</h1>
+    <p class="ca-hero-sub">Career AI analyzes your entire SkillTracker portfolio and gives you personalized recommendations for the right major, scholarships, skills to develop, and a clear roadmap to your future.</p>
+    <div class="hero-actions">
+      <button class="btn btn-primary">🤖 Run Career Analysis</button>
+      <a class="btn btn-soft" href="SkillTracker.html">View My Profile</a>
+    </div>
+  </section>
+
+  <!-- AI Analysis Banner -->
+  <div class="ca-ai-banner">
+    <div class="ca-ai-icon">🤖</div>
+    <div class="ca-ai-text">
+      <h3>Career AI Analysis — Last Updated: Feb 1, 2026</h3>
+      <p>Based on your 4 projects, 26 volunteer hours, 3 achievements, and 2 club leaderships, Career AI has generated a personalized career roadmap for you.</p>
+    </div>
+  </div>
+
+  <!-- Feature Cards -->
+  <div class="ca-grid">
+    <div class="ca-card">
+      <div class="ca-card-icon" style="background:#ede9fe;">🎓</div>
+      <h3>Major Recommendations</h3>
+      <p>AI-matched university majors based on your skills, projects, and academic interests.</p>
+    </div>
+    <div class="ca-card">
+      <div class="ca-card-icon" style="background:#dcfce7;">🏅</div>
+      <h3>Scholarship Finder</h3>
+      <p>Find scholarships and programs that fit your profile and increase your chances of acceptance.</p>
+    </div>
+    <div class="ca-card">
+      <div class="ca-card-icon" style="background:#dbeafe;">📈</div>
+      <h3>Skill Gap Analysis</h3>
+      <p>See exactly which skills to develop and which courses to take to strengthen your profile.</p>
+    </div>
+  </div>
+
+  <!-- Majors + Scholarships -->
+  <div class="ca-two">
+    <div class="ca-inner-card">
+      <h3>🎯 Suggested University Majors</h3>
+      <div class="ca-major-list">
+        <div class="ca-major-item">
+          <div class="ca-major-icon" style="background:#ede9fe;">💻</div>
+          <div class="ca-major-info"><h4>Computer Engineering</h4><span>Strong match based on robotics & programming projects</span></div>
+          <span class="ca-match-badge ca-match-high">96% Match</span>
+        </div>
+        <div class="ca-major-item">
+          <div class="ca-major-icon" style="background:#dcfce7;">🌿</div>
+          <div class="ca-major-info"><h4>Environmental Engineering</h4><span>Aligned with biodiversity campaign & water filtration project</span></div>
+          <span class="ca-match-badge ca-match-high">88% Match</span>
+        </div>
+        <div class="ca-major-item">
+          <div class="ca-major-icon" style="background:#dbeafe;">⚡</div>
+          <div class="ca-major-info"><h4>Electrical Engineering</h4><span>Solar car & Arduino projects show strong fit</span></div>
+          <span class="ca-match-badge ca-match-med">74% Match</span>
+        </div>
+        <div class="ca-major-item">
+          <div class="ca-major-icon" style="background:#fef3c7;">🤖</div>
+          <div class="ca-major-info"><h4>Robotics & Automation</h4><span>Top match for students with robotics club leadership</span></div>
+          <span class="ca-match-badge ca-match-high">91% Match</span>
+        </div>
+      </div>
+    </div>
+    <div class="ca-inner-card">
+      <h3>🏆 Scholarship Opportunities</h3>
+      <div class="ca-scholarship-list">
+        <div class="ca-scholarship-item">
+          <h4>STEM Excellence Scholarship</h4>
+          <p>For outstanding STEM students with community impact projects.</p>
+          <div class="ca-scholarship-footer">
+            <span class="ca-match-badge ca-match-high">Good Fit</span>
+            <span style="color:var(--text-soft);font-size:0.76rem;">Deadline: Jun 2026</span>
+          </div>
+        </div>
+        <div class="ca-scholarship-item">
+          <h4>National Innovation Award Grant</h4>
+          <p>Recognizes innovative projects with real-world applications.</p>
+          <div class="ca-scholarship-footer">
+            <span class="ca-match-badge ca-match-med">Strengthen Profile</span>
+            <span style="color:var(--text-soft);font-size:0.76rem;">Deadline: Aug 2026</span>
+          </div>
+        </div>
+        <div class="ca-scholarship-item">
+          <h4>King Abdullah Scholarship (KAUST)</h4>
+          <p>Full scholarship for exceptional engineering students.</p>
+          <div class="ca-scholarship-footer">
+            <span class="ca-match-badge ca-match-med">Build Toward</span>
+            <span style="color:var(--text-soft);font-size:0.76rem;">Deadline: Sep 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills to Develop -->
+  <section class="ca-skills">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;flex-wrap:wrap;gap:0.5rem;">
+      <h2 style="margin:0;font-size:1.1rem;">📦 Skills to Develop</h2>
+    </div>
+    <div class="ca-skills-grid">
+      <div class="ca-skill-item">
+        <div class="ca-skill-icon" style="background:#ede9fe;">🧠</div>
+        <div class="ca-skill-info"><h4>Machine Learning Basics</h4><span>Take the AI/ML course to strengthen engineering profile</span></div>
+        <span class="ca-skill-status" style="color:#7a5af5;">Recommended</span>
+      </div>
+      <div class="ca-skill-item">
+        <div class="ca-skill-icon" style="background:#dcfce7;">📊</div>
+        <div class="ca-skill-info"><h4>Data Analysis</h4><span>Complete 1 data-driven project to boost your CV</span></div>
+        <span class="ca-skill-status" style="color:#7a5af5;">Recommended</span>
+      </div>
+      <div class="ca-skill-item">
+        <div class="ca-skill-icon" style="background:#dbeafe;">🌐</div>
+        <div class="ca-skill-info"><h4>IELTS Preparation</h4><span>Start early for international scholarship applications</span></div>
+        <span class="ca-skill-status" style="color:#b45309;">In Progress</span>
+      </div>
+      <div class="ca-skill-item">
+        <div class="ca-skill-icon" style="background:#fef3c7;">📝</div>
+        <div class="ca-skill-info"><h4>Research Paper Writing</h4><span>Essential for ISEF and university applications</span></div>
+        <span class="ca-skill-status" style="color:#16a34a;">✓ Developed</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+<footer class="footer"><div class="footer-inner container"><p>&copy; 2026 EduVance. All rights reserved.</p></div></footer>
+</div>
+
+
+<!-- ─── Slide-out Drawer Menu ─── -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <a href="index.html" class="drawer-logo">
+      <img src="logo.png" alt="EduVance" style="height: 32px; width: auto;">
+    </a>
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">&#x2715;</button>
+  </div>
+  <div class="drawer-profile">
+    <img src="./student.png" alt="Sara">
+    <div class="drawer-profile-info">
+      <h4>Sara Hassan</h4>
+      <span>Grade 10 &bull; Gifted Program</span>
+    </div>
+  </div>
+  <div class="drawer-nav">
+    <div class="drawer-section-label">Main</div>
+    <a href="index.html" id="drawer-home">
+      <span class="drawer-icon" style="background:#e0ecff;">&#x1F3E0;</span> Home
+    </a>
+    <a href="student-dashboard.html" id="drawer-dashboard">
+      <span class="drawer-icon" style="background:#f3ecff;">&#x1F4CC;</span> Dashboard
+    </a>
+    <div class="drawer-section-label">Hubs</div>
+    <a href="SkillTracker.html" id="drawer-skilltracker">
+      <span class="drawer-icon" style="background:#e0ecff;">&#x1F4CA;</span> SkillTracker
+    </a>
+    <a href="skillvol.html" id="drawer-skillvol">
+      <span class="drawer-icon" style="background:#e1fff0;">&#x1F91D;</span> SkillVol
+    </a>
+    <a href="skillclubs.html" id="drawer-skillclubs">
+      <span class="drawer-icon" style="background:#ffe5f2;">&#x1F465;</span> SkillClubs
+    </a>
+    <a href="skilltours.html" id="drawer-skilltours">
+      <span class="drawer-icon" style="background:#ffe7c2;">&#x1F68C;</span> SkillTours
+    </a>
+    <a href="monitoring.html" id="drawer-monitoring">
+      <span class="drawer-icon" style="background:#f3ecff;">&#x1F9ED;</span> Monitoring Hub
+    </a>
+    <div class="drawer-section-label">Learning</div>
+    <a href="courses.html" id="drawer-courses">
+      <span class="drawer-icon" style="background:#e0f2fe;">&#x1F393;</span> Courses
+    </a>
+    <a href="examprep.html" id="drawer-examprep">
+      <span class="drawer-icon" style="background:#fff9e6;">&#x1F4DD;</span> Exam Prep Hub
+    </a>
+    <a href="careerai.html" id="drawer-careerai">
+      <span class="drawer-icon" style="background:#e2fcd9;">&#x1F916;</span> Career AI
+    </a>
+    <div class="drawer-section-label">About</div>
+    <a href="about.html" id="drawer-about">
+      <span class="drawer-icon" style="background:#dbeafe;">&#x2139;&#xFE0F;</span> About EduVance
+    </a>
+  </div>
+  <div class="drawer-footer">
+    <p>&copy; 2026 EduVance. All rights reserved.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var burger  = document.getElementById('hamburgerBtn');
+  var overlay = document.getElementById('drawerOverlay');
+  var drawer  = document.getElementById('drawer');
+  function open(){
+    burger.classList.add('open');
+    overlay.classList.add('open');
+    drawer.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function close(){
+    burger.classList.remove('open');
+    overlay.classList.remove('open');
+    drawer.classList.remove('open');
+    document.body.style.overflow='';
+  }
+  burger.addEventListener('click',open);
+  overlay.addEventListener('click',close);
+  document.getElementById('drawerClose').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  var page=window.location.pathname.split('/').pop()||'index.html';
+  var map={
+    'index.html':'drawer-home',
+    'student-dashboard.html':'drawer-dashboard',
+    'SkillTracker.html':'drawer-skilltracker',
+    'skillvol.html':'drawer-skillvol',
+    'skillclubs.html':'drawer-skillclubs',
+    'skilltours.html':'drawer-skilltours',
+    'monitoring.html':'drawer-monitoring',
+    'courses.html':'drawer-courses',
+    'examprep.html':'drawer-examprep',
+    'careerai.html':'drawer-careerai',
+    'about.html':'drawer-about'
+  };
+  var id=map[page];
+  if(id){var el=document.getElementById(id);if(el)el.classList.add('active');}
+})();
+</script>
+
+</body>
+</html>
