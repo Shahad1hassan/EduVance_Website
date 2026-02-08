@@ -9,33 +9,46 @@
 <body>
 <div class="page">
 
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="container navbar-inner">
-      <div class="logo">EduVance</div>
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="courses.html" class="active">Courses</a>
-        <a href="student-dashboard.html">Student Dashboard</a>
-        <a href="student-dashboard.html#skilltracker">SkillTracker</a>
-        <a href="student-dashboard.html#skillvol">SkillVol</a>
-        <a href="student-dashboard.html#skillclubs">SkillClubs</a>
-        <a href="student-dashboard.html#skilltours">SkillTours</a>
-        <a href="student-dashboard.html#monitoring">Monitoring Hub</a>
-        <a href="student-dashboard.html#examprep">Exam Prep Hub</a>
-        <a href="student-dashboard.html#careerai">Career AI</a>
-      </nav>
-      <div class="nav-right">
-        <button class="icon-btn">🔍</button>
-        <button class="icon-btn">🔔</button>
-        <a href="student-dashboard.html" title="Student Dashboard">
-          <div class="avatar"></div>
-        </a>
-      </div>
+<!-- Navbar -->
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">EduVance</a>
+    <nav class="nav-links">
+      <a href="courses.html" class="active">Courses</a>
+      <a href="skillTracker.html">SkillTracker</a>
+      <a href="skillVol.html">SkillVol</a>
+      <a href="skillClubs.html">SkillClubs</a>
+      <a href="skillTours.html">SkillTours</a>
+      <a href="monitoring.html">Monitoring Hub</a>
+      <a href="examprep.html">Exam Prep Hub</a>
+      <a href="careerai.html">Career AI</a>
+    </nav>
+
+    <div class="nav-right">
+      <button class="icon-btn">🔍</button>
+      <button class="icon-btn">🔔</button>
+      <a href="student-dashboard.html" title="Student Dashboard" class="avatar-link">
+        <img
+          src="./student.png"
+          alt="Student Avatar"
+          class="avatar-img"
+        />
+      </a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
-  </header>
+  </div>
+</header>
 
   <main class="container">
+
+    <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>Courses</span>
+        </div>
 
     <!-- Header Section -->
     <section class="section" style="margin-top: 2rem;">
@@ -89,19 +102,114 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-links">
-        <span>Contact</span>
-        <span>Privacy</span>
-        <span>About EduVance</span>
-      </div>
-      <span>© 2025 EduVance</span>
+    <div class="footer-inner container">
+      <p>&copy; 2026 EduVance. All rights reserved.</p>
     </div>
   </footer>
 
 </div>
 
 <script src="courses.js"></script>
+
+
+
+<!-- Slide-out Drawer Menu -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <a href="index.html" class="drawer-logo">EduVance</a>
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">&#x2715;</button>
+  </div>
+  <div class="drawer-profile">
+    <img src="./student.png" alt="Sara">
+    <div class="drawer-profile-info">
+      <h4>Sara Hassan</h4>
+      <span>Grade 10 &bull; Gifted Program</span>
+    </div>
+  </div>
+  <div class="drawer-nav">
+    <div class="drawer-section-label">Main</div>
+    <a href="index.html" id="drawer-home">
+      <span class="drawer-icon" style="background:#e0ecff;">&#x1F3E0;</span> Home
+    </a>
+    <a href="student-dashboard.html" id="drawer-dashboard">
+      <span class="drawer-icon" style="background:#f3ecff;">&#x1F4CC;</span> Dashboard
+    </a>
+    <div class="drawer-section-label">Hubs</div>
+    <a href="SkillTracker.html" id="drawer-skilltracker">
+      <span class="drawer-icon" style="background:#e0ecff;">&#x1F4CA;</span> SkillTracker
+    </a>
+    <a href="skillvol.html" id="drawer-skillvol">
+      <span class="drawer-icon" style="background:#e1fff0;">&#x1F91D;</span> SkillVol
+    </a>
+    <a href="skillclubs.html" id="drawer-skillclubs">
+      <span class="drawer-icon" style="background:#ffe5f2;">&#x1F465;</span> SkillClubs
+    </a>
+    <a href="skilltours.html" id="drawer-skilltours">
+      <span class="drawer-icon" style="background:#ffe7c2;">&#x1F68C;</span> SkillTours
+    </a>
+    <a href="monitoring.html" id="drawer-monitoring">
+      <span class="drawer-icon" style="background:#f3ecff;">&#x1F9ED;</span> Monitoring Hub
+    </a>
+    <div class="drawer-section-label">Learning</div>
+    <a href="courses.html" id="drawer-courses">
+      <span class="drawer-icon" style="background:#e0f2fe;">&#x1F393;</span> Courses
+    </a>
+    <a href="examprep.html" id="drawer-examprep">
+      <span class="drawer-icon" style="background:#fff9e6;">&#x1F4DD;</span> Exam Prep Hub
+    </a>
+    <a href="careerai.html" id="drawer-careerai">
+      <span class="drawer-icon" style="background:#e2fcd9;">&#x1F916;</span> Career AI
+    </a>
+    <div class="drawer-section-label">About</div>
+    <a href="about.html" id="drawer-about">
+      <span class="drawer-icon" style="background:#dbeafe;">&#x2139;&#xFE0F;</span> About EduVance
+    </a>
+  </div>
+  <div class="drawer-footer">
+    <p>&copy; 2026 EduVance. All rights reserved.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var burger  = document.getElementById('hamburgerBtn');
+  var overlay = document.getElementById('drawerOverlay');
+  var drawer  = document.getElementById('drawer');
+  function open(){
+    burger.classList.add('open');
+    overlay.classList.add('open');
+    drawer.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function close(){
+    burger.classList.remove('open');
+    overlay.classList.remove('open');
+    drawer.classList.remove('open');
+    document.body.style.overflow='';
+  }
+  burger.addEventListener('click',open);
+  overlay.addEventListener('click',close);
+  document.getElementById('drawerClose').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  var page=window.location.pathname.split('/').pop()||'index.html';
+  var map={
+    'index.html':'drawer-home',
+    'student-dashboard.html':'drawer-dashboard',
+    'SkillTracker.html':'drawer-skilltracker',
+    'skillvol.html':'drawer-skillvol',
+    'skillclubs.html':'drawer-skillclubs',
+    'skilltours.html':'drawer-skilltours',
+    'monitoring.html':'drawer-monitoring',
+    'courses.html':'drawer-courses',
+    'examprep.html':'drawer-examprep',
+    'careerai.html':'drawer-careerai',
+    'about.html':'drawer-about'
+  };
+  var id=map[page];
+  if(id){var el=document.getElementById(id);if(el)el.classList.add('active');}
+})();
+</script>
 
 </body>
 </html>
