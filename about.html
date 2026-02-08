@@ -5,10 +5,227 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About EduVance</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* ─── About Hero ─── */
+    .ab-hero {
+      margin-top: 1.4rem;
+      background: linear-gradient(135deg, #7a5af5 0%, #5b3fd6 55%, #4cb8ff 100%);
+      border-radius: var(--radius-lg);
+      padding: 3rem 2.2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .ab-hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+    }
+    .ab-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+    }
+    .ab-hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,255,255,0.15);
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 1rem;
+      position: relative; z-index: 1;
+    }
+    .ab-hero h1 {
+      position: relative; z-index: 1;
+      color: #fff; font-size: 2.4rem;
+      margin: 0 0 0.7rem; line-height: 1.2;
+    }
+    .ab-hero p {
+      position: relative; z-index: 1;
+      color: rgba(255,255,255,0.78);
+      font-size: 1rem; line-height: 1.7;
+      max-width: 640px; margin: 0 auto;
+    }
+
+    /* ─── Mission strip ─── */
+    .ab-mission {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.8rem;
+    }
+    .ab-mis-card {
+      background: #fff;
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 1.4rem 1.2rem;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .ab-mis-card:hover { transform: translateY(-3px); }
+    .ab-mis-icon {
+      width: 56px; height: 56px;
+      border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      margin: 0 auto 0.7rem;
+    }
+    .ab-mis-card h3 { margin: 0 0 0.3rem; font-size: 1.05rem; }
+    .ab-mis-card p { margin: 0; color: var(--text-soft); font-size: 0.84rem; line-height: 1.55; }
+
+    /* ─── How it works ─── */
+    .ab-how { margin-top: 2rem; }
+    .ab-how-title { font-size: 1.25rem; margin: 0 0 0.3rem; }
+    .ab-how-sub { color: var(--text-soft); font-size: 0.9rem; margin: 0 0 1.2rem; }
+    .ab-steps {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 0.9rem;
+    }
+    .ab-step {
+      background: #fff;
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      padding: 1.1rem 0.9rem;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(15,23,42,0.05);
+      position: relative;
+    }
+    .ab-step-num {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 0.85rem;
+      margin: 0 auto 0.6rem;
+    }
+    .ab-step h4 { margin: 0 0 0.2rem; font-size: 0.9rem; }
+    .ab-step p { margin: 0; color: var(--text-soft); font-size: 0.78rem; line-height: 1.45; }
+
+    /* ─── Features grid ─── */
+    .ab-features { margin-top: 2rem; }
+    .ab-feat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .ab-feat {
+      background: #fff;
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 1.2rem;
+      display: flex; gap: 0.9rem; align-items: flex-start;
+      transition: transform 0.18s;
+    }
+    .ab-feat:hover { transform: translateY(-2px); }
+    .ab-feat-icon {
+      width: 48px; height: 48px;
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .ab-feat-text h3 { margin: 0 0 0.2rem; font-size: 1rem; }
+    .ab-feat-text p { margin: 0; color: var(--text-soft); font-size: 0.83rem; line-height: 1.5; }
+
+    /* ─── Stats bar ─── */
+    .ab-stats {
+      margin-top: 2rem;
+      background: linear-gradient(135deg, #f3ecff, #e0f2fe);
+      border-radius: var(--radius-lg);
+      padding: 1.6rem 1.8rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 1rem;
+    }
+    .ab-stat { text-align: center; }
+    .ab-stat-num { font-size: 1.8rem; font-weight: 950; color: var(--primary); }
+    .ab-stat-label { color: var(--text-soft); font-size: 0.8rem; font-weight: 700; margin-top: 3px; }
+
+    /* ─── Team / Vision strip ─── */
+    .ab-vision {
+      margin-top: 2rem;
+      background: #fff;
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 1.8rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .ab-vision h2 { margin: 0 0 0.5rem; font-size: 1.35rem; }
+    .ab-vision > div > p { margin: 0; color: var(--text-soft); font-size: 0.9rem; line-height: 1.7; }
+    .ab-vision-values { display: flex; flex-direction: column; gap: 0.7rem; }
+    .ab-val {
+      display: flex; gap: 0.7rem; align-items: center;
+      padding: 0.65rem 0.8rem;
+      background: #f7f8fc;
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-sm);
+    }
+    .ab-val-icon {
+      width: 34px; height: 34px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+    .ab-val-text h4 { margin: 0; font-size: 0.88rem; }
+    .ab-val-text span { color: var(--text-soft); font-size: 0.78rem; }
+
+    /* ─── CTA ─── */
+    .ab-cta {
+      margin-top: 2rem;
+      background: linear-gradient(135deg, #7a5af5, #5b3fd6);
+      border-radius: var(--radius-lg);
+      padding: 2rem 2.2rem;
+      text-align: center;
+    }
+    .ab-cta h2 { color: #fff; margin: 0 0 0.4rem; font-size: 1.4rem; }
+    .ab-cta p { color: rgba(255,255,255,0.75); margin: 0 0 1.2rem; font-size: 0.92rem; }
+    .ab-cta-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #fff; color: var(--primary);
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 800; font-size: 0.9rem;
+      text-decoration: none;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.18);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .ab-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(0,0,0,0.22); }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .ab-mission { grid-template-columns: 1fr 1fr; }
+      .ab-steps { grid-template-columns: 1fr 1fr; }
+      .ab-feat-grid { grid-template-columns: 1fr; }
+      .ab-stats { grid-template-columns: 1fr 1fr; }
+      .ab-vision { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .ab-hero { padding: 2rem 1.2rem; }
+      .ab-hero h1 { font-size: 1.7rem; }
+      .ab-mission { grid-template-columns: 1fr; }
+      .ab-steps { grid-template-columns: 1fr 1fr; }
+      .ab-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
 </head>
 <body>
 <div class="page">
-
+  
 <!-- Navbar -->
 <header class="navbar">
   <div class="container navbar-inner">
@@ -18,19 +235,23 @@
     <nav class="nav-links">
       <a href="courses.html">Courses</a>
       <a href="skillTracker.html">SkillTracker</a>
-      <a href="skillVol.html">SkillVol</a>
-      <a href="skillClubs.html">SkillClubs</a>
-      <a href="skillTours.html">SkillTours</a>
+      <a href="skillvol.html">SkillVol</a>
+      <a href="skillclubs.html">SkillClubs</a>
+      <a href="skilltours.html">SkillTours</a>
       <a href="monitoring.html">Monitoring Hub</a>
       <a href="examprep.html">Exam Prep Hub</a>
       <a href="careerai.html">Career AI</a>
-    </nav>
 
+    </nav>
     <div class="nav-right">
       <button class="icon-btn">🔍</button>
       <button class="icon-btn">🔔</button>
-      <a href="student-dashboard.html" class="avatar-link">
-        <img src="./student.png" alt="Student Avatar" class="avatar-img"/>
+      <a href="student-dashboard.html" title="Student Dashboard" class="avatar-link">
+        <img
+          src="./student.png"
+          alt="Student Avatar"
+          class="avatar-img"
+        />
       </a>
       <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
         <span></span>
@@ -41,11 +262,12 @@
   </div>
 </header>
 
+
 <main class="container">
 
   <!-- Hero -->
   <div class="ab-hero">
-    <div class="ab-hero-badge"> About Us</div>
+    <div class="ab-hero-badge">About Us</div>
     <h1>EduVance</h1>
     <p>
       A smart platform built for talented and high-achieving students.
@@ -238,7 +460,9 @@
 <div class="drawer-overlay" id="drawerOverlay"></div>
 <div class="drawer" id="drawer">
   <div class="drawer-head">
-    <a href="index.html" class="drawer-logo">EduVance</a>
+    <a href="index.html" class="drawer-logo">
+      <img src="logo.png" alt="EduVance" style="height: 32px; width: auto;">
+    </a>
     <button class="drawer-close" id="drawerClose" aria-label="Close menu">&#x2715;</button>
   </div>
   <div class="drawer-profile">

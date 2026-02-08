@@ -5,19 +5,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SkillVol | EduVance</title>
   <link rel="stylesheet" href="style.css">
-</head>
+  <style>
+    .sv-hero { display:grid; grid-template-columns:1.2fr 0.8fr; gap:1.4rem; align-items:start; margin-top:1rem; }
+    .sv-hero-title { margin:0.8rem 0 0.5rem; font-size:2rem; line-height:1.15; }
+    .sv-hero-sub { color:var(--text-soft); margin:0 0 1rem; font-size:0.95rem; line-height:1.6; }
 
+    .sv-stats-card { background:#fff; border:1px solid var(--border-soft); border-radius:var(--radius-lg); box-shadow:var(--shadow-soft); padding:1.3rem; }
+    .sv-stats-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; }
+    .sv-stat { background:#f7f8fc; border:1px solid var(--border-soft); border-radius:var(--radius-md); padding:0.8rem; text-align:center; }
+    .sv-stat-num { font-size:1.5rem; font-weight:950; }
+    .sv-stat-label { color:var(--text-soft); font-size:0.78rem; font-weight:700; margin-top:2px; }
+
+    .sv-progress-section { margin-top:1rem; }
+    .sv-progress-label { display:flex; justify-content:space-between; font-size:0.84rem; color:var(--text-soft); font-weight:700; margin-bottom:0.4rem; }
+    .sv-prog-bar { height:8px; background:#eef2f7; border-radius:999px; overflow:hidden; }
+    .sv-prog-fill { height:100%; border-radius:999px; background:linear-gradient(90deg,#39c46a,#4cb8ff); }
+
+    .sv-sec-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem; flex-wrap:wrap; gap:0.6rem; }
+    .sv-sec-head h2 { margin:0; font-size:1.15rem; }
+    .sv-sec-head p { margin:0; color:var(--text-soft); font-size:0.85rem; width:100%; }
+    .sv-add-btn { display:inline-flex; align-items:center; gap:0.4rem; background:var(--primary); color:#fff; border:none; padding:0.55rem 1rem; border-radius:999px; font-weight:700; font-size:0.84rem; cursor:pointer; transition:transform 0.12s,box-shadow 0.12s; }
+    .sv-add-btn:hover { transform:translateY(-1px); box-shadow:0 8px 24px rgba(122,90,245,0.3); }
+
+    .sv-list { display:flex; flex-direction:column; gap:0.9rem; }
+    .sv-item { background:#fff; border:1px solid var(--border-soft); border-radius:var(--radius-lg); padding:1rem 1.1rem; display:flex; gap:1rem; align-items:flex-start; box-shadow:0 4px 14px rgba(15,23,42,0.05); transition:transform 0.15s,box-shadow 0.15s; }
+    .sv-item:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(15,23,42,0.09); }
+    .sv-item-icon { width:46px; height:46px; border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; flex-shrink:0; }
+    .sv-item-content { flex:1; min-width:0; }
+    .sv-item-content h3 { margin:0 0 0.2rem; font-size:0.97rem; }
+    .sv-item-content p { margin:0; color:var(--text-soft); font-size:0.83rem; line-height:1.5; }
+    .sv-item-footer { display:flex; gap:0.8rem; margin-top:0.6rem; flex-wrap:wrap; align-items:center; }
+    .sv-hours-pill { background:#dcfce7; color:#16a34a; padding:3px 10px; border-radius:999px; font-size:0.78rem; font-weight:700; }
+    .sv-lesson-pill { background:#e0f2fe; color:#0369a1; padding:3px 10px; border-radius:999px; font-size:0.78rem; font-weight:700; }
+    .sv-status-pill { padding:3px 10px; border-radius:999px; font-size:0.78rem; font-weight:700; }
+    .sv-status-done { background:#dcfce7; color:#16a34a; }
+    .sv-status-open { background:#fef3c7; color:#b45309; }
+
+    .sv-opportunities { margin-top:1.6rem; }
+    .sv-opp-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.9rem; }
+    .sv-opp-card { background:#fff; border:1px solid var(--border-soft); border-radius:var(--radius-md); padding:1rem; box-shadow:0 4px 12px rgba(15,23,42,0.04); transition:transform 0.15s,box-shadow 0.15s; }
+    .sv-opp-card:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(15,23,42,0.08); }
+    .sv-opp-icon { width:38px; height:38px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; margin-bottom:0.5rem; }
+    .sv-opp-card h4 { margin:0 0 0.25rem; font-size:0.9rem; }
+    .sv-opp-card p { margin:0; color:var(--text-soft); font-size:0.8rem; line-height:1.45; }
+    .sv-opp-card .sv-opp-meta { margin-top:0.5rem; display:flex; gap:0.5rem; flex-wrap:wrap; }
+
+    .sv-cta { margin-top:1.6rem; background:linear-gradient(135deg,#7a5af5,#5b3fd6); border-radius:var(--radius-lg); padding:1.3rem 1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+    .sv-cta h3 { color:#fff; margin:0 0 0.2rem; font-size:1.05rem; }
+    .sv-cta p { color:rgba(255,255,255,0.75); margin:0; font-size:0.86rem; }
+    .sv-cta-btn { background:#fff; color:var(--primary); border:none; padding:0.6rem 1.1rem; border-radius:999px; font-weight:800; font-size:0.84rem; cursor:pointer; transition:transform 0.12s,box-shadow 0.12s; white-space:nowrap; }
+    .sv-cta-btn:hover { transform:translateY(-1px); box-shadow:0 8px 24px rgba(0,0,0,0.2); }
+
+    @media(max-width:992px){ .sv-hero{grid-template-columns:1fr;} .sv-opp-grid{grid-template-columns:1fr 1fr;} }
+    @media(max-width:600px){ .sv-opp-grid{grid-template-columns:1fr;} .sv-hero-title{font-size:1.7rem;} }
+  </style>
+</head>
 <body>
 <div class="page">
+<!-- Navbar -->
 <header class="navbar">
   <div class="container navbar-inner">
-    <a href="index.html" class="logo" style="text-decoration:none;color:inherit;">EduVance</a>
+    <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
+      <img src="logo.png" alt="EduVance" style="height: 40px; width: auto;">
+    </a>
     <nav class="nav-links">
       <a href="courses.html">Courses</a>
       <a href="skillTracker.html">SkillTracker</a>
-      <a href="skillVol.html" class="active">SkillVol</a>
-      <a href="skillClubs.html">SkillClubs</a>
-      <a href="skillTours.html">SkillTours</a>
+      <a href="skillvol.html">SkillVol</a>
+      <a href="skillclubs.html">SkillClubs</a>
+      <a href="skilltours.html">SkillTours</a>
       <a href="monitoring.html">Monitoring Hub</a>
       <a href="examprep.html">Exam Prep Hub</a>
       <a href="careerai.html">Career AI</a>
@@ -25,7 +81,13 @@
     <div class="nav-right">
       <button class="icon-btn">🔍</button>
       <button class="icon-btn">🔔</button>
-      <a href="student-dashboard.html" class="avatar-link"><img src="./student.png" alt="Student Avatar" class="avatar-img"/></a>
+      <a href="student-dashboard.html" title="Student Dashboard" class="avatar-link">
+        <img
+          src="./student.png"
+          alt="Student Avatar"
+          class="avatar-img"
+        />
+      </a>
       <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
         <span></span>
         <span></span>
@@ -34,6 +96,7 @@
     </div>
   </div>
 </header>
+
 <main class="container">
 
   <section class="sv-hero">

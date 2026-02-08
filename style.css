@@ -115,15 +115,9 @@ body {
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
 }
 
-<<<<<<< HEAD
 /* ─── Hamburger Button ─── */
 .hamburger {
   display: none;           /* hidden by default; shown via media query */
-=======
-/* Hamburger Button */
-.hamburger {
-  display: none;           
->>>>>>> f59867e46271bdcb9a1173f73f8107f41767c2e6
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -413,7 +407,6 @@ main.container {
   text-decoration: none;
   font-weight: 800;
   color: var(--primary);
-
   border: 1px solid var(--border-soft);
   transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
 }
@@ -2146,8 +2139,13 @@ body {
   position: relative;
 }
 
-.icon-emoji {
-  font-size: 2rem;
+.icon-emoji img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 5px;
+
 }
 
 .feature-number {
