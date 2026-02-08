@@ -115,9 +115,15 @@ body {
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
 }
 
+<<<<<<< HEAD
 /* ─── Hamburger Button ─── */
 .hamburger {
   display: none;           /* hidden by default; shown via media query */
+=======
+/* Hamburger Button */
+.hamburger {
+  display: none;           
+>>>>>>> f59867e46271bdcb9a1173f73f8107f41767c2e6
   flex-direction: column;
   justify-content: center;
   align-items: center;
